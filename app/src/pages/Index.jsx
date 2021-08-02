@@ -13,9 +13,8 @@ export default function Index() {
 
     return (
         <div className="container my-5">
-            <h1>Listado de productos</h1>
+            <h1>{`Listado de productos ${process.env.REACT_APP_NAME}`}</h1>
             <Card products={products} setProducts={setProducts} />
         </div>
     )
 }
-

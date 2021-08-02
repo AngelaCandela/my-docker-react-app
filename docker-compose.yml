@@ -4,6 +4,8 @@ services:
   app:
     container_name: "${PROJECT_NAME}_react"
     image: app-dev
+    environment:
+      REACT_APP_NAME: $REACT_APP_NAME
     build:
       context: .
       target: development

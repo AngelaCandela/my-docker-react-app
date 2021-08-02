@@ -7,8 +7,11 @@ ENV NODE_ENV development
 # Add a work directory
 WORKDIR /app
 
+ARG REACT_APP_NAME
+
 # add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
+ENV REACT_APP_NAME $REACT_APP_NAME
 
 # Install app dependencies
 COPY ./app/package.json .
