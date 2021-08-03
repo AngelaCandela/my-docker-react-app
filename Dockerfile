@@ -1,3 +1,4 @@
+ARG REACT_APP_NAME
 # Pull official node LTS image
 FROM node:14-alpine AS development
 
@@ -6,8 +7,6 @@ ENV NODE_ENV development
 
 # Add a work directory
 WORKDIR /app
-
-ARG REACT_APP_NAME
 
 # add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
