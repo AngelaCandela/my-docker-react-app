@@ -6,6 +6,7 @@ import Index from "../pages/Index";
 import Error from "../pages/Error";
 import Create from '../pages/Create';
 import Edit from '../pages/Edit';
+import Ejercicio from '../pages/Ejercicio';
 
 export default function Router() {
     return (
@@ -16,6 +17,7 @@ export default function Router() {
                     <Route exact path="/" component={Index} />
                     <Route path="/create" component={Create} />
                     <Route path="/edit/:productID" component={Edit} />
+                    <Route path="/Ejercicio" component={Ejercicio} />
                     <Route component={Error} />
                 </Switch>
             </BrowserRouter>
