@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-  my-docker-react-app:
+  app:
     container_name: "${PROJECT_NAME}_react"
-    image: app-dev
+    image: "${PROJECT_NAME}-app-dev"
     environment:
       REACT_APP_NAME: $REACT_APP_NAME
     build:
