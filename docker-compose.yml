@@ -11,6 +11,8 @@ services:
       target: development
       args:
         REACT_APP_NAME: $REACT_APP_NAME
+    depends_on:
+      - api
     networks:
       - web
     volumes:
@@ -33,7 +35,51 @@ services:
       - "traefik.http.services.${PROJECT_NAME}_app.loadbalancer.server.port=3000"
       # Define on which network Traefik is operating.
       - "traefik.docker.network=web"
-
+  api:
+    image: 'bitnami/symfony:1'
+    # ports:
+    #   - '8000:8000'
+    volumes:
+      - '.:/app'
+    labels:
+      # Enable handler entrypoint on http.
+      - "traefik.http.routers.${DOCKER_NAME}_api-http.entrypoints=web"
+      # Define handler http host.
+      - "traefik.http.routers.${DOCKER_NAME}_api-http.rule=Host(`api.${DOCKER_BASE_URL}`)"
+      # Define http middleware and redirection to https.
+      - "traefik.http.routers.${DOCKER_NAME}_api-http.middlewares=${DOCKER_NAME}_api-https"
+      - "traefik.http.middlewares.${DOCKER_NAME}_api-https.redirectscheme.scheme=https"
+      # Enable handler entrypoint on https.
+      - "traefik.http.routers.${DOCKER_NAME}_api.entrypoints=websecure"
+      # Define handler host.
+      - "traefik.http.routers.${DOCKER_NAME}_api.rule=Host(`api.${DOCKER_BASE_URL}`)"
+      # Instructs Traefik that the current router is dedicated to HTTPS requests only.
+      - "traefik.http.routers.${DOCKER_NAME}_api.tls=true"
+      # Set service port for loadbalancer
+      - "traefik.http.services.${PROJECT_NAME}_api.loadbalancer.server.port=8000"
+      # Define on which network Traefik is operating.
+      - "traefik.docker.network=web"
+    environment:
+      - SYMFONY_PROJECT_NAME=${SYMFONY_PROJECT_NAME}
+      - MARIADB_HOST=${MARIADB_HOST}
+      - MARIADB_PORT_NUMBER=${MARIADB_PORT_NUMBER}
+      - MARIADB_USER=${MARIADB_USER}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+      - MARIADB_DATABASE=${MARIADB_DATABASE}
+    depends_on:
+      - mariadb
+    networks:
+      - web
+      - internal
+  mariadb:
+    image: 'bitnami/mariadb:10.3'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=${MARIADB_USER}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+      - MARIADB_DATABASE=${MARIADB_DATABASE}
+    networks:
+      - internal
 networks:
   web:
     external: true

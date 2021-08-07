@@ -13,6 +13,9 @@ export default function Navbar() {
                 <li className="nav-item">
                     <NavLink to="/Ejercicio" className="nav-link" activeClassName="active">Table</NavLink>
                 </li>
+                <li className="nav-item">
+                    <NavLink to="/recipes" className="nav-link" activeClassName="active">Recipes</NavLink>
+                </li>
             </ul>
         </nav>
     )

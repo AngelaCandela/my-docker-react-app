@@ -7,6 +7,7 @@ import Error from "../pages/Error";
 import Create from '../pages/Create';
 import Edit from '../pages/Edit';
 import Ejercicio from '../pages/Ejercicio';
+import Recipes from '../pages/Recipes';
 
 export default function Router() {
     return (
@@ -18,6 +19,7 @@ export default function Router() {
                     <Route path="/create" component={Create} />
                     <Route path="/edit/:productID" component={Edit} />
                     <Route path="/Ejercicio" component={Ejercicio} />
+                    <Route path="/recipes" component={Recipes} />
                     <Route component={Error} />
                 </Switch>
             </BrowserRouter>
