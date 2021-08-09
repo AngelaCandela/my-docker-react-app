@@ -9,7 +9,7 @@ export default function Card({ products, setProducts }) {
     fetch(URL_API_BASE + 'products/' + theProduct.id, { method: 'DELETE' })
       .then(response => response.text())
       .then(data => {
-        if (data == '') {
+        if (data === '') {
           const filtredData = products.filter(item => item.id !== theProduct.id)
 
           setProducts(filtredData)
@@ -25,12 +25,12 @@ export default function Card({ products, setProducts }) {
       {products.map(theProduct => {
         return (
           <div key={theProduct.name} className="card mt-5 p-3 col-4">
-            <img src="" className="card-img-top" />
+            <img alt="" src="" className="card-img-top" />
             <div className="card-body">
               <h5 className="card-title">{theProduct.name}</h5>
               <p className="card-text">Precio: {theProduct.price}€</p>
               <a href={URL_APP_BASE + 'edit/' + theProduct.id} className="btn btn-primary ">Editar</a>
-              <a onClick={() => deleted(theProduct)} className="btn btn-danger deleted ml-3" >Borrar</a>
+              <button onClick={() => deleted(theProduct)} className="btn btn-danger deleted ml-3" >Borrar</button>
             </div>
           </div>
         );

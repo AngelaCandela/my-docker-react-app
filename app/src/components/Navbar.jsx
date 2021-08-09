@@ -11,7 +11,7 @@ export default function Navbar() {
                     <NavLink to="/create" className="nav-link" activeClassName="active">Crear</NavLink>
                 </li>
                 <li className="nav-item">
-                    <NavLink to="/Ejercicio" className="nav-link" activeClassName="active">Table</NavLink>
+                    <NavLink to="/table" className="nav-link" activeClassName="active">Table</NavLink>
                 </li>
                 <li className="nav-item">
                     <NavLink to="/recipes" className="nav-link" activeClassName="active">Recipes</NavLink>

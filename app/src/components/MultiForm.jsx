@@ -10,7 +10,7 @@ class MultiForm extends React.Component {
         console.log(props.id);
 
         /* Aqui quizas deberia preguntar si viene con ID,
-        que directamente haga la consulta en el constructor 
+        que directamente haga la consulta en el constructor
         Para evitar que tarde en cargar */
         /* if (props.id != ) console.log('ok') */
 
@@ -24,7 +24,7 @@ class MultiForm extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.id != undefined) {
+        if (this.props.id !== undefined) {
             const PRODUCTS_URL = URL_API_BASE + "products/"
             fetch(`${PRODUCTS_URL}${this.props.id}`)
                 .then(response => response.json())
@@ -36,7 +36,7 @@ class MultiForm extends React.Component {
 
     /**
      * Funcion para manejar el cambio en el input y cambiar los estados
-     * @param {quien dispara el evento} event 
+     * @param {quien dispara el evento} event
      */
     handleInputChange(event) {
         const target = event.target;
@@ -51,13 +51,13 @@ class MultiForm extends React.Component {
 
     /**
      * Funcion que maneja el submit
-     * @param {Quien dispara el evento} event 
+     * @param {Quien dispara el evento} event
      */
     handleSubmit(event) {
         let pathProductID;
         let contentType;
         let method;
-        if (this.props.id != undefined) {
+        if (this.props.id !== undefined) {
             pathProductID = '/' + this.props.id;
             contentType = 'application/merge-patch+json'
             method = 'PATCH'
