@@ -12,6 +12,7 @@ export default function Table({ books }) {
                         <th>Author</th>
                         <th>Sales</th>
                         <th>Price</th>
+                        <th>Email</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,7 @@ export default function Table({ books }) {
                           author={book.author}
                           sales={book.sales}
                           price={book.price}
+                          email={book.email}
                         />
                     </tr>
                 })
@@ -32,13 +34,24 @@ export default function Table({ books }) {
     )
 };
 
+const isEmail = function(propValue, key, componentName, location, propFullName) {
+
+  const prop = (location && propFullName) ? propFullName : key;
+  const regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+
+  if (!regex.test(propValue[key])) {
+    return new Error(`Invalid prop ${prop} passed to ${componentName}. Expected a valid email address.`);
+  }
+};
+
 Table.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.exact({
       title: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
       sales: PropTypes.number.isRequired,
-      price: PropTypes.number.isRequired
+      price: PropTypes.number.isRequired,
+      email: isEmail
     })
   )
 };
