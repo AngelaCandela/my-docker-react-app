@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
-export default function Book({ title, author, sales, price, email }) {
-  return (
+const Book = ({ title, author, sales, price, email }) => (
     <>
       <td>{title}</td>
       <td>{author}</td>
@@ -9,13 +8,12 @@ export default function Book({ title, author, sales, price, email }) {
       <td>{price}</td>
       <td>{email}</td>
     </>
-  );
-};
+);
 
 const isEmail = function(props, propName, componentName) {
 
   const regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-  
+
   if (!regex.test(props[propName])) {
     return new Error(`Invalid prop ${propName} passed to ${componentName}. Expected a valid email address.`);
   }
@@ -28,3 +26,5 @@ Book.propTypes = {
  price: PropTypes.number.isRequired,
  email: isEmail
 };
+
+export default Book;

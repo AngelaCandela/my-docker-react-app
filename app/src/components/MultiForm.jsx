@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { URL_API_BASE } from '../CONST';
 import swal from 'sweetalert';
@@ -122,7 +122,7 @@ class MultiForm extends React.Component {
                 </div>
             </form>
         );
-    }
-}
+    };
+};
 
-export default MultiForm
+export default MultiForm;

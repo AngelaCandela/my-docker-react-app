@@ -1,9 +1,9 @@
-import { useParams } from "react-router-dom"
-import MultiForm from '../components/MultiForm'
+import { useParams } from "react-router-dom";
+import MultiForm from '../components/MultiForm';
 
-export default function Edit() {
+const Edit = () => {
 
-    const { productID } = useParams(); // Devuelve un objeto con los parametros recibios por URL
+    const { productID } = useParams(); // Devuelve un objeto con los parametros recibidos por URL
 
     return (
         <div className="container my-5">
@@ -13,4 +13,6 @@ export default function Edit() {
             <MultiForm id={productID} />
         </div>
     )
-}
+};
+
+export default Edit;

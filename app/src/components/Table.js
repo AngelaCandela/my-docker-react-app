@@ -1,38 +1,35 @@
 import PropTypes from 'prop-types';
 import Book from './Book';
 
-export default function Table({ books }) {
-    return (
-        <div className="container">
-            <h1 className="card-title mx-4 mt-4">Table</h1>
-            <table className="table table-striped table-hover mx-auto w-75">
-                <thead className="thead-dark">
-                    <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Sales</th>
-                        <th>Price</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                { books.map((book, index) => {
-                    return <tr key={index}>
-                        <Book
-                          title={book.title}
-                          author={book.author}
-                          sales={book.sales}
-                          price={book.price}
-                          email={book.email}
-                        />
-                    </tr>
-                })
-                }
-                </tbody>
-            </table>
-        </div>
-    )
-};
+const Table = ({ books }) => (
+    <div className="container">
+        <h1 className="card-title mx-4 mt-4">Table</h1>
+        <table className="table table-striped table-hover mx-auto w-75">
+            <thead className="thead-dark">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Sales</th>
+                    <th>Price</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+            { books.map((book, index) => {
+                return <tr key={index}>
+                    <Book
+                      title={book.title}
+                      author={book.author}
+                      sales={book.sales}
+                      price={book.price}
+                      email={book.email}
+                    />
+                </tr>
+            })}
+            </tbody>
+        </table>
+    </div>
+);
 
 const isEmail = function(propValue, key, componentName, location, propFullName) {
 
@@ -55,3 +52,5 @@ Table.propTypes = {
     })
   )
 };
+
+export default Table;

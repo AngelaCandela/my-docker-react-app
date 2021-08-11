@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function Recipes() {
+const Recipes = () => {
 
     const [recipes, setRecipes] = useState([]);
 
@@ -22,11 +22,11 @@ function Recipes() {
         return () => {
 
         }
-    }, [])
+    }, []);
 
   return (
     <ol>
-        {recipes.map((recipe, index) => {
+        { recipes.map((recipe, index) => {
             return <li key={index}>
                         <h4>{recipe.name}</h4>
                         <p>{recipe.method}</p>
@@ -37,10 +37,9 @@ function Recipes() {
                             }
                         </ol>
                     </li>
-            })
-        }
+        })}
     </ol>
   );
-}
+};
 
 export default Recipes;

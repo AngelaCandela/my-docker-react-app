@@ -1,8 +1,7 @@
-import React from 'react'
-import { URL_APP_BASE, URL_API_BASE } from '../CONST'
+import React from 'react';
+import { URL_APP_BASE, URL_API_BASE } from '../CONST';
 
-
-export default function Card({ products, setProducts }) {
+const Card = ({ products, setProducts }) => {
 
   const deleted = (theProduct) => {
 
@@ -37,4 +36,6 @@ export default function Card({ products, setProducts }) {
       })}
     </div>
   )
-}
+};
+
+export default Card;
