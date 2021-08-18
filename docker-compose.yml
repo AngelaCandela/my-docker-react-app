@@ -6,6 +6,8 @@ services:
     image: "${PROJECT_NAME}-app-dev"
     environment:
       REACT_APP_NAME: $REACT_APP_NAME
+      REACT_APP_URL_API_BASE: $REACT_APP_URL_API_BASE
+      REACT_APP_URL_APP_BASE: $REACT_APP_URL_APP_BASE
     build:
       context: .
       target: development
