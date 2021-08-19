@@ -23,4 +23,6 @@ const LinkItem = ({ link }) => (
     </NavLink>
 )
 
+// TODO: propTypes for LinkItem
+
 export default Navbar;
