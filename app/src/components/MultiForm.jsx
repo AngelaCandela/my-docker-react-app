@@ -106,6 +106,7 @@ class MultiForm extends React.Component {
                         name="name"
                         type="text"
                         value={this.state.name}
+                        // Don't save the state on every change
                         onChange={this.handleInputChange} />
                     <br />
                     <label>
@@ -116,6 +117,7 @@ class MultiForm extends React.Component {
                         name="price"
                         type="number"
                         value={this.state.price}
+                        // Don't save the state on every change
                         onChange={this.handleInputChange} />
                     <Button
                         type="submit"
