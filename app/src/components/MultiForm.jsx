@@ -88,8 +88,9 @@ class MultiForm extends React.Component {
                     swal("Error", "Ha fallado el guardado de tu producto!", "warning")
                 }
             })
-            .catch(() => {
+            .catch((error) => {
                 swal("Error", "Ha fallado el guardado de tu producto!", "warning")
+                console.error('There was an error:', error)
             });
     }
 
