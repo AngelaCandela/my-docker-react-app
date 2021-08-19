@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import { URL_API_BASE } from '../CONST';
 import swal from 'sweetalert';
 
+// TODO: Destructuring MultiForm class
+
 /* Si viene parametro con valor, tiene que pasarse al props */
 class MultiForm extends React.Component {
     constructor(props) {
@@ -68,6 +70,8 @@ class MultiForm extends React.Component {
         }
 
         event.preventDefault();
+
+        // TODO: Make fake creation without fetch
         fetch(URL_API_BASE + 'products' + pathProductID, {
             method: method,
             headers: {
@@ -86,15 +90,16 @@ class MultiForm extends React.Component {
                     swal("Error", "Ha fallado el guardado de tu producto!", "warning")
                 }
             })
-            .catch(() => {
+            .catch((error) => {
                 swal("Error", "Ha fallado el guardado de tu producto!", "warning")
+                console.error('There was an error:', error)
             });
     }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <div className="row">
+            <div className="row">
+                <form onSubmit={this.handleSubmit}>
                     <label>
                         Nombre
                     </label>
@@ -103,6 +108,7 @@ class MultiForm extends React.Component {
                         name="name"
                         type="text"
                         value={this.state.name}
+                        // Don't save the state on every change
                         onChange={this.handleInputChange} />
                     <br />
                     <label>
@@ -113,14 +119,15 @@ class MultiForm extends React.Component {
                         name="price"
                         type="number"
                         value={this.state.price}
+                        // Don't save the state on every change
                         onChange={this.handleInputChange} />
                     <Button
                         type="submit"
                         className="mt-3"
                         value="Enviar"
                     >Enviar</Button>
-                </div>
-            </form>
+                </form>
+            </div>
         );
     };
 };

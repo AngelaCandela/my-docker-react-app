@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Header1 from "../components/atom/Header1"
+import Container from "../components/layout/Container"
 import { ContactForm } from "../components/ContactForm";
 import { TileList } from "../components/TileList";
 
@@ -35,7 +37,8 @@ export const ContactsPage = ({ contacts, addContact }) => {
   };
 
   return (
-    <div>
+    <Container className="my-5">
+      <Header1 title="Contacts"/>
       <section>
         <h2>Add Contact</h2>
         <ContactForm
@@ -53,6 +56,6 @@ export const ContactsPage = ({ contacts, addContact }) => {
         <h2>Contacts</h2>
         <TileList tiles={contacts} />
       </section>
-    </div>
+    </Container>
   );
 };

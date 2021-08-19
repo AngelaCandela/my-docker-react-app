@@ -13,12 +13,16 @@ import TodoList from './pages/TodoList';
 import Error from './pages/Error';
 import Footer from "./components/Footer";
 
+import "./css/style.css"
+
 const App = () => {
+  // TODO: move contacts logic on contacts page
   const [contacts, setContacts] = useState([]);
+  // TODO: move appointments logic on appointments page
   const [appointments, setAppointments] = useState([]);
 
   const addContact = (name, phone, email) => {
-    let newContact = {
+    const newContact = {
       name: name,
       phone: phone,
       email: email
@@ -27,7 +31,7 @@ const App = () => {
   };
 
   const addAppointment = (title, contact, date, time) => {
-    let newAppointment = {
+    const newAppointment = {
       title: title,
       contact: contact,
       date: date,
