@@ -5,21 +5,25 @@ const BooksTable = ({ books }) => (
     <table className="table table-striped table-hover mx-auto w-75">
         <thead className="thead-dark">
             <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Sales</th>
-                <th>Price</th>
-                <th>Email</th>
+                { books.header.map((header, index) =>
+                    <HeaderCol key={index} header={header} />
+                )}
             </tr>
         </thead>
         <tbody>
-        { books.map((book, index) =>
+        { books.data.map((book, index) =>
             <TableRow key={index} book={book} />
         )}
         </tbody>
     </table>
 );
 
+// TODO: Add propTypes for HeaderCol
+const HeaderCol = ({ header }) => (
+  <th>{header}</th>
+)
+
+// TODO: Add propTypes for TableRow
 const TableRow = ({ book }) => (
   <tr>
       <Book
@@ -42,6 +46,7 @@ const isEmail = function(propValue, key, componentName, location, propFullName) 
   }
 };
 
+// TODO: fix propTypes for new data structure
 BooksTable.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.exact({
