@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import { URL_API_BASE } from '../CONST';
 import swal from 'sweetalert';
 
+// TODO: Destructuring MultiForm class
+
 /* Si viene parametro con valor, tiene que pasarse al props */
 class MultiForm extends React.Component {
     constructor(props) {
