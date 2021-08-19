@@ -1,0 +1,27 @@
+[
+  {
+    "to": "/",
+    "linkText": "Inicio",
+    "active": true
+  },
+  {
+    "to": "/create",
+    "linkText": "Crear",
+    "active": false
+  },
+  {
+    "to": "/table",
+    "linkText": "Table",
+    "active": false
+  },
+  {
+    "to": "/contacts",
+    "linkText": "Contacts",
+    "active": false
+  },
+  {
+    "to": "/appointments",
+    "linkText": "Appointments",
+    "active": false
+  }
+]
