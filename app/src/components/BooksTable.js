@@ -13,20 +13,24 @@ const BooksTable = ({ books }) => (
             </tr>
         </thead>
         <tbody>
-        { books.map((book, index) => {
-            return <tr key={index}>
-                <Book
-                  title={book.title}
-                  author={book.author}
-                  sales={book.sales}
-                  price={book.price}
-                  email={book.email}
-                />
-            </tr>
-        })}
+        { books.map((book, index) =>
+            <TableRow key={index} book={book} />
+        )}
         </tbody>
     </table>
 );
+
+const TableRow = ({ book }) => (
+  <tr>
+      <Book
+        title={book.title}
+        author={book.author}
+        sales={book.sales}
+        price={book.price}
+        email={book.email}
+      />
+  </tr>
+)
 
 const isEmail = function(propValue, key, componentName, location, propFullName) {
 
