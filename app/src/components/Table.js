@@ -2,32 +2,30 @@ import PropTypes from 'prop-types';
 import Book from './Book';
 
 const Table = ({ books }) => (
-    <div className="container">
-        <table className="table table-striped table-hover mx-auto w-75">
-            <thead className="thead-dark">
-                <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Sales</th>
-                    <th>Price</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-            { books.map((book, index) => {
-                return <tr key={index}>
-                    <Book
-                      title={book.title}
-                      author={book.author}
-                      sales={book.sales}
-                      price={book.price}
-                      email={book.email}
-                    />
-                </tr>
-            })}
-            </tbody>
-        </table>
-    </div>
+    <table className="table table-striped table-hover mx-auto w-75">
+        <thead className="thead-dark">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Sales</th>
+                <th>Price</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+        { books.map((book, index) => {
+            return <tr key={index}>
+                <Book
+                  title={book.title}
+                  author={book.author}
+                  sales={book.sales}
+                  price={book.price}
+                  email={book.email}
+                />
+            </tr>
+        })}
+        </tbody>
+    </table>
 );
 
 const isEmail = function(propValue, key, componentName, location, propFullName) {
