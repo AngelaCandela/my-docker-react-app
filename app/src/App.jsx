@@ -12,6 +12,8 @@ import TablePage from './pages/TablePage';
 import Error from './pages/Error';
 import Footer from "./components/Footer";
 
+import "./css/style.css"
+
 const App = () => {
   const [contacts, setContacts] = useState([]);
   const [appointments, setAppointments] = useState([]);
