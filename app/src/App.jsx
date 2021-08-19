@@ -9,6 +9,7 @@ import Index from './pages/Index';
 import Create from './pages/Create';
 import Edit from './pages/Edit';
 import TablePage from './pages/TablePage';
+import TodoList from './pages/TodoList';
 import Error from './pages/Error';
 import Footer from "./components/Footer";
 
@@ -57,6 +58,7 @@ const App = () => {
           <Route path="/create" component={Create} />
           <Route path="/edit/:productID" component={Edit} />
           <Route path="/table" component={TablePage} />
+          <Route path="/todos" component={TodoList} />
           <Route component={Error} />
         </Switch>
       </BrowserRouter>

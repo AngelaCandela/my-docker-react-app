@@ -18,6 +18,9 @@ const Navbar = () => (
             <li className="nav-item">
                 <NavLink to="/appointments" className="nav-link" activeClassName="active">Appointments</NavLink>
             </li>
+            <li className="nav-item">
+                <NavLink to="/todos" className="nav-link" activeClassName="active">To-do List</NavLink>
+            </li>
         </ul>
     </nav>
 );
