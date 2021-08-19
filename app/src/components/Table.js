@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import Book from './Book';
+import Header1 from './atom/Header1'
 
 const Table = ({ books }) => (
     <div className="container">
-        <h1 className="card-title mx-4 mt-4">Table</h1>
+        <Header1 title="Table"/>
         <table className="table table-striped table-hover mx-auto w-75">
             <thead className="thead-dark">
                 <tr>

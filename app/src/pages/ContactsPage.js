@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Header1 from "../components/atom/Header1"
 import { ContactForm } from "../components/ContactForm";
 import { TileList } from "../components/TileList";
 
@@ -36,6 +37,7 @@ export const ContactsPage = ({ contacts, addContact }) => {
 
   return (
     <div>
+      <Header1 title="Contacts"/>
       <section>
         <h2>Add Contact</h2>
         <ContactForm

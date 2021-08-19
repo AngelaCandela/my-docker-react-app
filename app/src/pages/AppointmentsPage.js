@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Header1 from "../components/atom/Header1"
 import { AppointmentForm } from "../components/AppointmentForm";
 import { TileList } from "../components/TileList";
 
@@ -19,6 +20,7 @@ export const AppointmentsPage = ({ appointments, addAppointment, contacts }) => 
 
   return (
     <div>
+      <Header1 title="Appointments"/>
       <section>
         <h2>Add Appointment</h2>
         <AppointmentForm
