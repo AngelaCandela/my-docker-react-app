@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Book from './Book';
 
-const Table = ({ books }) => (
+const BooksTable = ({ books }) => (
     <table className="table table-striped table-hover mx-auto w-75">
         <thead className="thead-dark">
             <tr>
@@ -38,7 +38,7 @@ const isEmail = function(propValue, key, componentName, location, propFullName) 
   }
 };
 
-Table.propTypes = {
+BooksTable.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.exact({
       title: PropTypes.string.isRequired,
@@ -50,4 +50,4 @@ Table.propTypes = {
   )
 };
 
-export default Table;
+export default BooksTable;
