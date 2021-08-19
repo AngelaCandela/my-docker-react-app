@@ -98,8 +98,8 @@ class MultiForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <div className="row">
+            <div className="row">
+                <form onSubmit={this.handleSubmit}>
                     <label>
                         Nombre
                     </label>
@@ -126,8 +126,8 @@ class MultiForm extends React.Component {
                         className="mt-3"
                         value="Enviar"
                     >Enviar</Button>
-                </div>
-            </form>
+                </form>
+            </div>
         );
     };
 };
