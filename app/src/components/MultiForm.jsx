@@ -70,6 +70,8 @@ class MultiForm extends React.Component {
         }
 
         event.preventDefault();
+
+        // TODO: Make fake creation without fetch
         fetch(URL_API_BASE + 'products' + pathProductID, {
             method: method,
             headers: {
