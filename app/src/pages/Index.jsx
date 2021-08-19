@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Header1 from '../components/atom/Header1'
+import Container from "../components/layout/Container"
 import Card from '../components/Card';
 import { URL_API_BASE } from '../CONST';
 
@@ -18,14 +19,14 @@ const Index = () => {
     }, []);
 
     return (
-        <div className="container my-5">
+        <Container className="my-5">
             <Header1
                 title={`Listado de productos ${process.env.REACT_APP_NAME}`}/>
 
             {hasError && <p>I'm sorry, something went wrong loading the products!</p>}
 
             {products && <Card products={products} setProducts={setProducts} />}
-        </div>
+        </Container>
     )
 };
 

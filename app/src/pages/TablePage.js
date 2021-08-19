@@ -1,11 +1,12 @@
+import Container from "../components/layout/Container"
 import Table from '../components/Table';
 // TODO: migrate books to real json
 import { books } from '../data/books';
 
 const TablePage = () => (
-    <div className="App">
+    <Container className="my-5">
       <Table books={books}/>
-    </div>
+    </Container>
 );
 
 export default TablePage;
