@@ -44,6 +44,10 @@ const isEmail = function (propValue, key, componentName, location, propFullName)
   }
 };
 
+BooksTable.propTypes = {
+  books: PropTypes.array
+};
+
 TableRow.propTypes = {
   book: PropTypes.arrayOf(
     PropTypes.exact({
@@ -55,19 +59,6 @@ TableRow.propTypes = {
     })
   )
 }
-
-// TODO: fix propTypes for new data structure
-BooksTable.propTypes = {
-  books: PropTypes.arrayOf(
-    PropTypes.exact({
-      title: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      sales: PropTypes.number.isRequired,
-      price: PropTypes.number.isRequired,
-      email: isEmail
-    })
-  ),
-};
 
 HeaderCol.propTypes = {
   header: PropTypes.string.isRequired
