@@ -13,8 +13,6 @@ services:
       target: development
       args:
         REACT_APP_NAME: $REACT_APP_NAME
-    depends_on:
-      - api
     networks:
       - web
     volumes:
