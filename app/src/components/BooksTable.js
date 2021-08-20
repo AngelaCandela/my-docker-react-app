@@ -22,7 +22,6 @@ const HeaderCol = ({ header }) => (
   <th>{header}</th>
 )
 
-// TODO: Add propTypes for TableRow
 const TableRow = ({ book }) => (
   <tr>
     <Book
@@ -44,6 +43,18 @@ const isEmail = function (propValue, key, componentName, location, propFullName)
     return new Error(`Invalid prop ${prop} passed to ${componentName}. Expected a valid email address.`);
   }
 };
+
+TableRow.propTypes = {
+  book: PropTypes.arrayOf(
+    PropTypes.exact({
+      title: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      sales: PropTypes.number.isRequired,
+      price: PropTypes.number.isRequired,
+      email: isEmail
+    })
+  )
+}
 
 // TODO: fix propTypes for new data structure
 BooksTable.propTypes = {
