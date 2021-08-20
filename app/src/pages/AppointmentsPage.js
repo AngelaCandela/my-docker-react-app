@@ -1,14 +1,26 @@
 import React, { useState } from "react";
 import Header1 from "../components/atom/Header1"
 import Container from "../components/layout/Container"
+import contacts from "../data/contacts.json";
 import { AppointmentForm } from "../components/AppointmentForm";
 import { TileList } from "../components/TileList";
 
-export const AppointmentsPage = ({ appointments, addAppointment, contacts }) => {
+export const AppointmentsPage = () => {
+  const [appointments, setAppointments] = useState([]);
   const [title, setTitle] = useState("");
   const [contact, setContact] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+
+  const addAppointment = (title, contact, date, time) => {
+    const newAppointment = {
+      title: title,
+      contact: contact,
+      date: date,
+      time: time
+    };
+    setAppointments(prev => [newAppointment, ...prev]);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +33,7 @@ export const AppointmentsPage = ({ appointments, addAppointment, contacts }) => 
 
   return (
     <Container className="my-5">
-      <Header1 title="Appointments"/>
+      <Header1 title="Appointments" />
       <section>
         <h2>Add Appointment</h2>
         <AppointmentForm
@@ -35,7 +47,7 @@ export const AppointmentsPage = ({ appointments, addAppointment, contacts }) => 
           time={time}
           setTime={setTime}
           handleSubmit={handleSubmit}
-          />
+        />
       </section>
       <hr />
       <section>
