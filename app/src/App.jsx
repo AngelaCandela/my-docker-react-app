@@ -16,19 +16,8 @@ import Footer from "./components/Footer";
 import "./css/style.css"
 
 const App = () => {
-  // TODO: move contacts logic on contacts page
-  const [contacts, setContacts] = useState([]);
   // TODO: move appointments logic on appointments page
   const [appointments, setAppointments] = useState([]);
-
-  const addContact = (name, phone, email) => {
-    const newContact = {
-      name: name,
-      phone: phone,
-      email: email
-    };
-    setContacts(prev => [newContact, ...prev]);
-  };
 
   const addAppointment = (title, contact, date, time) => {
     const newAppointment = {
@@ -46,16 +35,12 @@ const App = () => {
         <Navbar />
         <Switch>
           <Route path="/contacts">
-            <ContactsPage
-              contacts={contacts}
-              addContact={addContact}
-            />
+            <ContactsPage />
           </Route>
           <Route path="/appointments">
             <AppointmentsPage
               appointments={appointments}
               addAppointment={addAppointment}
-              contacts={contacts}
             />
           </Route>
           <Route exact path="/" component={Index} />

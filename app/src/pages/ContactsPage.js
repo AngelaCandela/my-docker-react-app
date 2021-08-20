@@ -4,17 +4,27 @@ import Container from "../components/layout/Container"
 import { ContactForm } from "../components/ContactForm";
 import { TileList } from "../components/TileList";
 
-export const ContactsPage = ({ contacts, addContact }) => {
+export const ContactsPage = () => {
 
+  const [contacts, setContacts] = useState([]);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [isDuplicate, setIsDuplicate] = useState(false);
 
+  const addContact = (name, phone, email) => {
+    const newContact = {
+      name: name,
+      phone: phone,
+      email: email
+    };
+    setContacts(prev => [newContact, ...prev]);
+  };
+
   const duplicateCheck = (name) => {
     let nameIsDuplicate = false;
     contacts.map(contact => {
-      if(contact.name === name) {
+      if (contact.name === name) {
         nameIsDuplicate = true;
         setIsDuplicate(nameIsDuplicate);
         return nameIsDuplicate;
@@ -27,7 +37,7 @@ export const ContactsPage = ({ contacts, addContact }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(!duplicateCheck(name)) {
+    if (!duplicateCheck(name)) {
       addContact(name, phone, email);
       setName('');
       setPhone('');
@@ -38,7 +48,7 @@ export const ContactsPage = ({ contacts, addContact }) => {
 
   return (
     <Container className="my-5">
-      <Header1 title="Contacts"/>
+      <Header1 title="Contacts" />
       <section>
         <h2>Add Contact</h2>
         <ContactForm
