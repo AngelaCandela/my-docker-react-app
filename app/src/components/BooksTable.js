@@ -45,7 +45,12 @@ const isEmail = function (propValue, key, componentName, location, propFullName)
 };
 
 BooksTable.propTypes = {
-  books: PropTypes.array
+  books: PropTypes.arrayOf(
+    PropTypes.exact({
+      header: PropTypes.array.isRequired,
+      data: PropTypes.array.isRequired
+    })
+  )
 };
 
 TableRow.propTypes = {
