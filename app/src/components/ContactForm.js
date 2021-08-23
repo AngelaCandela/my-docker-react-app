@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ContactForm = ({
+const ContactForm = ({
   name,
   setName,
   phone,
@@ -45,3 +45,5 @@ export const ContactForm = ({
     </form>
   );
 };
+
+export default ContactForm;

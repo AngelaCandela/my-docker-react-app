@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Header1 from "../components/atom/Header1"
 import Container from "../components/layout/Container"
-import { ContactForm } from "../components/ContactForm";
-import { TileList } from "../components/TileList";
+import ContactForm from "../components/ContactForm";
+import TileList from "../components/TileList";
 
-export const ContactsPage = ({ contacts, addContact }) => {
+const ContactsPage = ({ contacts, addContact }) => {
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -59,3 +59,5 @@ export const ContactsPage = ({ contacts, addContact }) => {
     </Container>
   );
 };
+
+export default ContactsPage;

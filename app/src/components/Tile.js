@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Tile = ({ tile }) => {
+const Tile = ({ tile }) => {
   return (
     <div className="tile-container">
       {Object.values(tile).map((value, index) => (
@@ -9,3 +9,5 @@ export const Tile = ({ tile }) => {
     </div>
   )
 };
+
+export default Tile;

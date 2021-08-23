@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Header1 from "../components/atom/Header1"
 import Container from "../components/layout/Container"
-import { AppointmentForm } from "../components/AppointmentForm";
-import { TileList } from "../components/TileList";
+import AppointmentForm from "../components/AppointmentForm";
+import TileList from "../components/TileList";
 
-export const AppointmentsPage = ({ appointments, addAppointment, contacts }) => {
+const AppointmentsPage = ({ appointments, addAppointment, contacts }) => {
   const [title, setTitle] = useState("");
   const [contact, setContact] = useState("");
   const [date, setDate] = useState("");
@@ -45,3 +45,5 @@ export const AppointmentsPage = ({ appointments, addAppointment, contacts }) => 
     </Container>
   );
 };
+
+export default AppointmentsPage;

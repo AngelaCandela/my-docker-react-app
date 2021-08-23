@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { ContactsPage } from './pages/ContactsPage';
-import { AppointmentsPage } from './pages/AppointmentsPage';
-
+import ContactsPage from './pages/ContactsPage';
+import AppointmentsPage from './pages/AppointmentsPage';
 import Navbar from './components/Navbar';
 import Index from './pages/Index';
 import Create from './pages/Create';

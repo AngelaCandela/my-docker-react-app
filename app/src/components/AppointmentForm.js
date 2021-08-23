@@ -1,7 +1,7 @@
 import React from "react";
-import { ContactPicker } from "./ContactPicker";
+import ContactPicker from "./ContactPicker";
 
-export const AppointmentForm = ({
+const AppointmentForm = ({
   contacts,
   title,
   setTitle,
@@ -60,3 +60,5 @@ export const AppointmentForm = ({
     </form>
   );
 };
+
+export default AppointmentForm;
