@@ -1,44 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header1 from "../components/atom/Header1"
 import Container from "../components/layout/Container"
 import ContactForm from "../components/ContactForm";
 import TileList from "../components/TileList";
 
-const ContactsPage = () => {
+const ContactsPage = ({ contacts, addContact }) => {
 
-  const [contacts, setContacts] = useState([]);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [isDuplicate, setIsDuplicate] = useState(false);
-
-  useEffect(() => {
-      fetch('data/contacts.json', {
-       headers : {
-         'Content-Type': 'application/json',
-         'Accept': 'application/json'
-        }
-      })
-      .then(response => {
-          if(!response.ok)
-              throw new Error(`Something went wrong: ${response.statusText}`);
-
-          console.log(response.statusText);
-          return response.json();
-      })
-      .then(response => setContacts(response))
-      .catch(error => console.error('There was an error:', error)
-      );
-  }, []);
-
-  const addContact = (name, phone, email) => {
-    const newContact = {
-      name: name,
-      phone: phone,
-      email: email
-    };
-    setContacts(prev => [newContact, ...prev]);
-  };
 
   const duplicateCheck = (name) => {
     let nameIsDuplicate = false;

@@ -3,25 +3,13 @@ import Header1 from "../components/atom/Header1"
 import Container from "../components/layout/Container"
 import AppointmentForm from "../components/AppointmentForm";
 import TileList from "../components/TileList";
-import contacts from "../data/contacts.json";
 
-const AppointmentsPage = () => {
+const AppointmentsPage = ({ appointments, addAppointment, contacts }) => {
 
-  const [appointments, setAppointments] = useState([]);
   const [title, setTitle] = useState("");
   const [contact, setContact] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-
-  const addAppointment = (title, contact, date, time) => {
-    const newAppointment = {
-      title: title,
-      contact: contact,
-      date: date,
-      time: time
-    };
-    setAppointments(prev => [newAppointment, ...prev]);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
