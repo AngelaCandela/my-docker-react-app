@@ -59,4 +59,8 @@ BooksTable.propTypes = {
   )
 };
 
+HeaderCol.propTypes = {
+  header: PropTypes.string.isRequired
+};
+
 export default BooksTable;
