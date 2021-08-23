@@ -15,34 +15,13 @@ import Footer from "./components/Footer";
 import "./css/style.css"
 
 const App = () => {
-
-  // TODO: move appointments logic on appointments page
-  const [appointments, setAppointments] = useState([]);
-
-  const addAppointment = (title, contact, date, time) => {
-    const newAppointment = {
-      title: title,
-      contact: contact,
-      date: date,
-      time: time
-    };
-    setAppointments(prev => [newAppointment, ...prev]);
-  };
-
   return (
     <div className="d-flex flex-column justify-content-stretch">
       <BrowserRouter>
         <Navbar />
         <Switch>
-          <Route path="/contacts">
-            <ContactsPage/>
-          </Route>
-          <Route path="/appointments">
-            <AppointmentsPage
-              appointments={appointments}
-              addAppointment={addAppointment}
-            />
-          </Route>
+          <Route path="/contacts" component={ContactsPage} />
+          <Route path="/appointments" component={AppointmentsPage} />
           <Route exact path="/" component={Index} />
           <Route path="/create" component={Create} />
           <Route path="/edit/:productID" component={Edit} />
