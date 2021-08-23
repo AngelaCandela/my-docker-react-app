@@ -49,7 +49,7 @@ BooksTable.propTypes = {
 };
 
 TableRow.propTypes = {
-  book: PropTypes.arrayOf(
+  book: PropTypes.objectOf(
     PropTypes.exact({
       title: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
