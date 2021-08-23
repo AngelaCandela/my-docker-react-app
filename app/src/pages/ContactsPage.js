@@ -4,12 +4,22 @@ import Container from "../components/layout/Container"
 import ContactForm from "../components/ContactForm";
 import TileList from "../components/TileList";
 
-const ContactsPage = ({ contacts, addContact }) => {
+const ContactsPage = () => {
 
+  const [contacts, setContacts] = useState([]);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [isDuplicate, setIsDuplicate] = useState(false);
+
+  const addContact = (name, phone, email) => {
+    const newContact = {
+      name: name,
+      phone: phone,
+      email: email
+    };
+    setContacts(prev => [newContact, ...prev]);
+  };
 
   const duplicateCheck = (name) => {
     let nameIsDuplicate = false;
