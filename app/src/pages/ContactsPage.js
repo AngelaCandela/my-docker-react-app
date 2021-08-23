@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header1 from "../components/atom/Header1"
 import Container from "../components/layout/Container"
 import { ContactForm } from "../components/ContactForm";
@@ -11,6 +11,21 @@ export const ContactsPage = () => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [isDuplicate, setIsDuplicate] = useState(false);
+
+
+  useEffect(() => {
+    fetch("data/contacts.json", {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => setContacts(data))
+      .catch(error => {
+        console.error('There was an error:', error);
+      });
+  }, []);
 
   const addContact = (name, phone, email) => {
     const newContact = {
