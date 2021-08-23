@@ -18,12 +18,10 @@ const BooksTable = ({ books }) => (
     </table>
 );
 
-// TODO: Add propTypes for HeaderCol
 const HeaderCol = ({ header }) => (
   <th>{header}</th>
 )
 
-// TODO: Add propTypes for TableRow
 const TableRow = ({ book }) => (
   <tr>
       <Book
@@ -61,6 +59,16 @@ BooksTable.propTypes = {
 
 HeaderCol.propTypes = {
   header: PropTypes.string.isRequired
+};
+
+TableRow.propTypes = {
+  book: PropTypes.exact({
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    sales: PropTypes.number.isRequired,
+    price:  PropTypes.number.isRequired,
+    email: isEmail
+  })
 };
 
 export default BooksTable;
