@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import MultiForm from '../components/MultiForm';
+// import MultiForm from '../components/MultiForm';
 
-const Edit = () => {
+const EditProduct = () => {
 
     const { productID } = useParams(); // Devuelve un objeto con los parametros recibidos por URL
 
@@ -10,9 +10,9 @@ const Edit = () => {
             <div className="row justify-content-md-center">
                 <h1>Edit</h1>
             </div>
-            <MultiForm id={productID} />
+            {/* TODO: Agrega llamada a componente ProductForm */}
         </div>
     )
 };
 
-export default Edit;
+export default EditProduct;
