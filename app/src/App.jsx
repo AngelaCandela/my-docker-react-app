@@ -6,16 +6,21 @@ import { AppointmentsPage } from './pages/AppointmentsPage';
 
 import Navbar from './components/Navbar';
 import Index from './pages/Index';
-import Create from './pages/Create';
-import Edit from './pages/Edit';
+import CreateProduct from './pages/CreateProduct';
+import EditProduct from './pages/EditProduct';
 import TablePage from './pages/TablePage';
 import TodoList from './pages/TodoList';
 import Error from './pages/Error';
 import Footer from "./components/Footer";
+import ProductsElements from './data/products.json';
 
 import "./css/style.css"
+import EditProduct from "./pages/EditProduct";
 
 const App = () => {
+
+  const [products, setProducts] = useState(ProductsElements);
+
   return (
     <div className="d-flex flex-column justify-content-stretch">
       <BrowserRouter>
@@ -27,9 +32,15 @@ const App = () => {
           <Route path="/appointments">
             <AppointmentsPage />
           </Route>
-          <Route exact path="/" component={Index} />
-          <Route path="/create" component={Create} />
-          <Route path="/edit/:productID" component={Edit} />
+          <Route exact path="/">
+            <Index products={products} />
+          </Route>
+          <Route path="/create">
+            <CreateProduct setProducts={setProducts} />
+          </Route>
+          <Route path="/edit/:productID">
+            <EditProduct products={products} setProducts={setProducts} />
+          </Route>
           <Route path="/table" component={TablePage} />
           <Route path="/todos" component={TodoList} />
           <Route component={Error} />
