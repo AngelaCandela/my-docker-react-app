@@ -7,15 +7,14 @@ import { AppointmentsPage } from './pages/AppointmentsPage';
 import Navbar from './components/Navbar';
 import Index from './pages/Index';
 import CreateProduct from './pages/CreateProduct';
-import EditProduct from './pages/EditProduct';
 import TablePage from './pages/TablePage';
 import TodoList from './pages/TodoList';
 import Error from './pages/Error';
 import Footer from "./components/Footer";
 import ProductsElements from './data/products.json';
+import EditProduct from "./pages/EditProduct";
 
 import "./css/style.css"
-import EditProduct from "./pages/EditProduct";
 
 const App = () => {
 
