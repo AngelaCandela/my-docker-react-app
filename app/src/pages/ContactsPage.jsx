@@ -12,9 +12,8 @@ export const ContactsPage = () => {
   const [email, setEmail] = useState("");
   const [isDuplicate, setIsDuplicate] = useState(false);
 
-
   useEffect(() => {
-    fetch("data/contacts.json", {
+    fetch("/data/contacts.json", {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'

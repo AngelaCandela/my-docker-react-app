@@ -13,7 +13,7 @@ const CreateProduct = ({ setProducts }) => (
 );
 
 CreateProduct.propTypes = {
-    setProducts: PropTypes.fuction.isRequired
+    setProducts: PropTypes.func.isRequired
 }
 
 export default CreateProduct;
