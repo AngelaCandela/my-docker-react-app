@@ -14,8 +14,8 @@ const ProductForm = ({ addProduct }) => {
     setName(nameInput.value);
     setPrice(priceInput.value);
     addProduct(name, price);
-    setName('');
-    setPrice(null);
+    // setName('');
+    // setPrice(null);
   };
 
   // const handleNameChange = (e) => {
