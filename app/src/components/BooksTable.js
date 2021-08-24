@@ -5,13 +5,13 @@ const BooksTable = ({ books }) => (
     <table className="table table-striped table-hover mx-auto w-75">
         <thead className="thead-dark">
             <tr>
-                { books.header.map((header, index) =>
+                { books[0].header.map((header, index) =>
                     <HeaderCol key={index} header={header} />
                 )}
             </tr>
         </thead>
         <tbody>
-        { books.data.map((book, index) =>
+        { books[0].data.map((book, index) =>
             <TableRow key={index} book={book} />
         )}
         </tbody>

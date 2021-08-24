@@ -1,25 +1,74 @@
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
+import React, { useEffect, useRef } from 'react';
 
-// TODO: Destructuring MultiForm class
+const ProductForm = ({ products, setProducts, addProduct, id }) => {
 
-const ProductForm = ({ addProduct }) => {
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState(null);
+  const nameInput = useRef();
+  const priceInput = useRef();
+
+  useEffect(() => {
+    if(id !== undefined) {
+      try {
+        const product = products.find(product => product.id == id);
+        nameInput.current.value = product.name;
+        priceInput.current.value = product.price;
+      } catch (error) {
+          console.error(error);
+      };
+    }
+
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addProduct(name, price);
-    setName('');
-    setPrice(null);
+    const name = nameInput.current.value;
+    const price = priceInput.current.value;
+    if(id !== undefined) {
+      editProduct(name, price);
+    } else {
+      createProduct(name, price);
+    }
   };
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
+  const editProduct = (name, price) => {
+    const newProductsArray = products.map(product => {
+      if(product.id == id) {
+        return {
+          ...product,
+          name: name,
+          price: price
+        }
+      } else {
+        return product;
+      }
+    });
+    setProducts(newProductsArray);
+    clearInputs();
   };
 
-  const handlePriceChange = (e) => {
-    setPrice(e.target.value);
+  const createProduct = (name, price) => {
+    const id = generateRandomId();
+    if (addProduct(id, name, price)) {
+      clearInputs();
+    } else {
+      alert('We could not add this product to the list.');
+    };
+  };
+
+  const generateRandomId = () => {
+    const newId = Math.floor(Math.random() * 1000);
+    products.map(product => {
+      if(product.id === newId) {
+        generateRandomId();
+      } else {
+        return product;
+      }
+    });
+    return newId;
+  };
+
+  const clearInputs = () => {
+    nameInput.current.value = '';
+    priceInput.current.value = '';
   };
 
   return (
@@ -29,30 +78,25 @@ const ProductForm = ({ addProduct }) => {
                   Name
               </label>
               <input
-                id="nameInput"
                 className="col-12"
                 name="name"
                 type="text"
-                onChange={handleNameChange}
-                value={name}
+                ref={nameInput}
               />
               <br />
               <label>
                 Price
               </label>
               <input
-                id="priceInput"
                 className="col-12"
                 name="price"
                 type="number"
-                onChange={handlePriceChange}
-                value={price}
+                ref={priceInput}
               />
-              <Button
+              <input
                 type="submit"
-                className="mt-3">
-                Send
-              </Button>
+                className="mt-3"
+                value={id ? "Edit product" : "Create product"}/>
           </form>
       </div>
   );

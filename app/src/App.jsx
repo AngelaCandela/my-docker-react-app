@@ -38,12 +38,19 @@ const App = () => {
     setAppointments(prev => [newAppointment, ...prev]);
   };
 
-  const addProduct = (name, price) => {
-    const newProduct = {
-      name: name,
-      price: price
+  const addProduct = (id, name, price) => {
+    try {
+      const newProduct = {
+        id: id,
+        name: name,
+        price: price
+      };
+      setProducts(prev => [...prev, newProduct]);
+    } catch (error) {
+        console.error(error);
+        return false;
     };
-    setProducts(prev => [newProduct, ...prev]);
+    return true;
   };
 
   return (
@@ -54,6 +61,7 @@ const App = () => {
           <Route path="/contacts">
             <ContactsPage
               contacts={contacts}
+              setContacts={setContacts}
               addContact={addContact}
             />
           </Route>
@@ -72,10 +80,16 @@ const App = () => {
           </Route>
           <Route path="/create">
             <Create
+              products={products}
               addProduct={addProduct}
             />
           </Route>
-          <Route path="/edit/:productName" component={Edit} />
+          <Route path="/edit/:productId">
+            <Edit
+              products={products}
+              setProducts={setProducts}
+            />
+          </Route>
           <Route path="/table" component={TablePage} />
           <Route path="/todos" component={TodoList} />
           <Route component={Error} />
