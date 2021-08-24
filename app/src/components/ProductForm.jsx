@@ -9,15 +9,19 @@ const ProductForm = ({ addProduct }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     const nameInput = document.getElementById("nameInput");
     const priceInput = document.getElementById("priceInput");
     setName(nameInput.value);
     setPrice(priceInput.value);
+=======
+>>>>>>> Destructuring MultiForm class
     addProduct(name, price);
     setName('');
     setPrice(null);
   };
 
+<<<<<<< HEAD
   // const handleNameChange = (e) => {
   //   setName(e.target.value);
   // };
@@ -25,6 +29,15 @@ const ProductForm = ({ addProduct }) => {
   // const handlePriceChange = (e) => {
   //   setPrice(e.target.value);
   // };
+=======
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handlePriceChange = (e) => {
+    setPrice(e.target.value);
+  };
+>>>>>>> Destructuring MultiForm class
 
   return (
       <div className="row">
@@ -37,8 +50,13 @@ const ProductForm = ({ addProduct }) => {
                 className="col-12"
                 name="name"
                 type="text"
+<<<<<<< HEAD
                 // onChange={handleNameChange}
                 // value={name}
+=======
+                onChange={handleNameChange}
+                value={name}
+>>>>>>> Destructuring MultiForm class
               />
               <br />
               <label>
@@ -49,8 +67,13 @@ const ProductForm = ({ addProduct }) => {
                 className="col-12"
                 name="price"
                 type="number"
+<<<<<<< HEAD
                 // onChange={handlePriceChange}
                 // value={price}
+=======
+                onChange={handlePriceChange}
+                value={price}
+>>>>>>> Destructuring MultiForm class
               />
               <Button
                 type="submit"
