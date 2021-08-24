@@ -17,6 +17,7 @@ import "./css/style.css"
 const App = () => {
   const [contacts, setContacts] = useState([]);
   const [appointments, setAppointments] = useState([]);
+  const [products, setProducts] = useState([]);
 
   const addContact = (name, phone, email) => {
     const newContact = {
@@ -37,6 +38,14 @@ const App = () => {
     setAppointments(prev => [newAppointment, ...prev]);
   };
 
+  const addProduct = (name, price) => {
+    const newProduct = {
+      name: name,
+      price: price
+    };
+    setProducts(prev => [newProduct, ...prev]);
+  };
+
   return (
     <div className="d-flex flex-column justify-content-stretch">
       <BrowserRouter>
@@ -55,9 +64,18 @@ const App = () => {
               contacts={contacts}
             />
           </Route>
-          <Route exact path="/" component={Index} />
-          <Route path="/create" component={Create} />
-          <Route path="/edit/:productID" component={Edit} />
+          <Route exact path="/">
+            <Index
+              products={products}
+              setProducts={setProducts}
+            />
+          </Route>
+          <Route path="/create">
+            <Create
+              addProduct={addProduct}
+            />
+          </Route>
+          <Route path="/edit/:productName" component={Edit} />
           <Route path="/table" component={TablePage} />
           <Route path="/todos" component={TodoList} />
           <Route component={Error} />

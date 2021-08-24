@@ -1,35 +1,23 @@
 import React from 'react';
-import { URL_APP_BASE, URL_API_BASE } from '../CONST';
 
 const Card = ({ products, setProducts }) => {
 
-  const deleted = (theProduct) => {
-
-    fetch(URL_API_BASE + 'products/' + theProduct.id, { method: 'DELETE' })
-      .then(response => response.text())
-      .then(data => {
-        if (data === '') {
-          const filtredData = products.filter(item => item.id !== theProduct.id)
-
-          setProducts(filtredData)
-        } else {
-          console.log(data)
-        }
-      })
-      .catch(data => console.log(data))
-  }
+  const remove = (product) => {
+    const filteredProducts = products.filter(item => item.name !== product.name);
+    setProducts(filteredProducts);
+  };
 
   return (
     <div className="row">
-      {products.map(theProduct => {
+      {products.map(product => {
         return (
-          <div key={theProduct.name} className="card mt-5 p-3 col-4">
+          <div key={product.name} className="card mt-5 p-3 col-4">
             <img alt="" src="" className="card-img-top" />
             <div className="card-body">
-              <h5 className="card-title">{theProduct.name}</h5>
-              <p className="card-text">Precio: {theProduct.price}€</p>
-              <a href={URL_APP_BASE + 'edit/' + theProduct.id} className="btn btn-primary ">Editar</a>
-              <button onClick={() => deleted(theProduct)} className="btn btn-danger deleted ml-3" >Borrar</button>
+              <h5 className="card-title">Name: {product.name}</h5>
+              <p className="card-text">Price: {product.price}€</p>
+              <a href={'edit/' + product.name} className="btn btn-primary ">Edit</a>
+              <button onClick={() => remove(product)} className="btn btn-danger deleted ml-3">Delete</button>
             </div>
           </div>
         );
