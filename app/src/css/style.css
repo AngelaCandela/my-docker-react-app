@@ -96,3 +96,29 @@ select {
 .tile-container {
   margin-bottom: 20px;
 }
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+
+#todo {
+  background-color: lightgrey;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px 25px;
+  margin-bottom: 10px;
+}
+
+.complete {
+  text-decoration: line-through;
+}
+
+.todo {
+  text-decoration: none;
+}

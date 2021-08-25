@@ -47,9 +47,11 @@ const TodoList = () => {
       <form onSubmit={handleSubmit}>
         <input type='text' value={name} onChange={e => setName(e.target.value)} />
       </form>
-      {todos.map(todo =>
-        <Todo key={todo.id} todo={todo} dispatch={dispatch} />
-      )}
+      <ul>
+        {todos.map(todo =>
+          <Todo key={todo.id} todo={todo} dispatch={dispatch} />
+        )}
+      </ul>
     </Container>
   )
 };
