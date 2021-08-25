@@ -1,3 +1,5 @@
+import Header1 from '../components/atom/Header1';
+import Container from "../components/layout/Container";
 import React, {useState, useReducer} from "react";
 import Todo from "../components/Todo";
 
@@ -40,14 +42,15 @@ const TodoList = () => {
   };
 
   return (
-    <>
+    <Container className="my-5">
+      <Header1 title="To-dos List"/>
       <form onSubmit={handleSubmit}>
         <input type='text' value={name} onChange={e => setName(e.target.value)} />
       </form>
       {todos.map(todo =>
         <Todo key={todo.id} todo={todo} dispatch={dispatch} />
       )}
-    </>
+    </Container>
   )
 };
 
