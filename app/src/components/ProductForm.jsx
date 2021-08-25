@@ -8,15 +8,14 @@ const ProductForm = ({ products, setProducts, addProduct, id }) => {
   useEffect(() => {
     if(id !== undefined) {
       try {
-        const product = products.find(product => product.id == id);
+        const product = products.find(product => product.id.toString() === id);
         nameInput.current.value = product.name;
         priceInput.current.value = product.price;
       } catch (error) {
           console.error(error);
       };
     }
-
-  }, []);
+  }, [id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,7 +30,7 @@ const ProductForm = ({ products, setProducts, addProduct, id }) => {
 
   const editProduct = (name, price) => {
     const newProductsArray = products.map(product => {
-      if(product.id == id) {
+      if(product.id.toString() === id) {
         return {
           ...product,
           name: name,
@@ -56,11 +55,9 @@ const ProductForm = ({ products, setProducts, addProduct, id }) => {
 
   const generateRandomId = () => {
     const newId = Math.floor(Math.random() * 1000);
-    products.map(product => {
+    products.forEach(product => {
       if(product.id === newId) {
         generateRandomId();
-      } else {
-        return product;
       }
     });
     return newId;
