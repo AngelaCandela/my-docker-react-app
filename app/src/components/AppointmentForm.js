@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { AgendaContext } from "./context/context";
 import ContactPicker from "./ContactPicker";
 
-const AppointmentForm = ({
-  contacts,
-  title,
-  setTitle,
-  contact,
-  setContact,
-  date,
-  setDate,
-  time,
-  setTime,
-  handleSubmit
-}) => {
+const AppointmentForm = () => {
+
+  const { contacts, addAppointment } = useContext(AgendaContext);
+
+  const [title, setTitle] = useState("");
+  const [contact, setContact] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addAppointment(title, contact, date, time);
+    setTitle("");
+    setContact("");
+    setDate("");
+    setTime("");
+  };
+
   const getTodayString = () => {
     const [month, day, year] = new Date()
       .toLocaleDateString("en-US")

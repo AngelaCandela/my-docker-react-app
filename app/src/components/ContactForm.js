@@ -1,15 +1,40 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { AgendaContext } from "./context/context";
 
-const ContactForm = ({
-  name,
-  setName,
-  phone,
-  setPhone,
-  email,
-  setEmail,
-  isDuplicate,
-  handleSubmit
-}) => {
+const ContactForm = () => {
+
+  const { contacts, addContact } = useContext(AgendaContext);
+
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [isDuplicate, setIsDuplicate] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(!duplicateCheck(name)) {
+      addContact(name, phone, email);
+      setName('');
+      setPhone('');
+      setEmail('');
+      setIsDuplicate(false);
+    };
+  };
+
+  const duplicateCheck = (name) => {
+    let nameIsDuplicate = false;
+    contacts.map(contact => {
+      if(contact.name === name) {
+        nameIsDuplicate = true;
+        setIsDuplicate(nameIsDuplicate);
+        return nameIsDuplicate;
+      } else {
+        return nameIsDuplicate;
+      }
+    });
+    return nameIsDuplicate;
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <input

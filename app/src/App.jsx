@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AgendaProvider } from "./components/context/context.js"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import ContactsPage from './pages/ContactsPage';
@@ -58,20 +59,14 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Switch>
-          <Route path="/contacts">
-            <ContactsPage
-              contacts={contacts}
-              setContacts={setContacts}
-              addContact={addContact}
-            />
-          </Route>
-          <Route path="/appointments">
-            <AppointmentsPage
-              appointments={appointments}
-              addAppointment={addAppointment}
-              contacts={contacts}
-            />
-          </Route>
+          <AgendaProvider value={{contacts, setContacts, addContact, appointments, addAppointment}}>
+            <Route path="/contacts">
+              <ContactsPage />
+            </Route>
+            <Route path="/appointments">
+              <AppointmentsPage />
+            </Route>
+
           <Route exact path="/">
             <Index
               products={products}
@@ -90,6 +85,7 @@ const App = () => {
               setProducts={setProducts}
             />
           </Route>
+          </AgendaProvider>
           <Route path="/table" component={TablePage} />
           <Route path="/todos" component={TodoList} />
           <Route component={Error} />
