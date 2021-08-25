@@ -23,5 +23,20 @@
     "to": "/appointments",
     "linkText": "Appointments",
     "active": false
+  },
+  {
+    "to": "/useCallback",
+    "linkText": "useCallback",
+    "active": false
+  },
+  {
+    "to": "/useMemo",
+    "linkText": "useMemo",
+    "active": false
+  },
+  {
+    "to": "/useReducer",
+    "linkText": "useReducer",
+    "active": false
   }
 ]
