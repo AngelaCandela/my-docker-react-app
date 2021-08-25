@@ -1,7 +1,7 @@
 #footer {
-  width: 94%;
+  width: 100%;
   margin-top: 100px;
-  position: fixed;
+  position:fixed;
   bottom: 0;
   z-index: 0;
 }
