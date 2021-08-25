@@ -38,7 +38,7 @@ const App = () => {
             <AppointmentsPage />
           </Route>
           <Route exact path="/">
-            <Index products={memoizedProductValue} />
+            <Index products={memoizedProductValue} setProducts={setProducts} />
           </Route>
           <Route path="/create">
             <CreateProduct setProducts={setProducts} />
