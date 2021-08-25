@@ -4,10 +4,10 @@ import BooksTable from '../components/BooksTable';
 import books from '../data/books.json';
 
 const TablePage = () => (
-    <Container className="my-5">
-      <Header1 title="Table"/>
-      <BooksTable books={books}/>
-    </Container>
+  <Container className="my-5">
+    <Header1 title="Table" />
+    <BooksTable books={books[0]} />
+  </Container>
 );
 
-export default TablePage;
+export default TablePage
