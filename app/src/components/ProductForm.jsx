@@ -11,7 +11,12 @@ const ProductForm = ({ setProducts }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addProduct();
+        try {
+            addProduct();
+            alert('Creado con exito.')
+        } catch (error) {
+            console.error('Error: ')
+        }
     }
 
     const addProduct = () => {
@@ -22,7 +27,6 @@ const ProductForm = ({ setProducts }) => {
 
         setProducts(prev => [newProduct, ...prev]);
 
-        // alert("Se ha guardado con exito");
     }
 
     return (
