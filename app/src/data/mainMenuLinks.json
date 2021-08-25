@@ -23,5 +23,10 @@
     "to": "/appointments",
     "linkText": "Appointments",
     "active": false
+  },
+  {
+    "to": "/todos",
+    "linkText": "To-dos",
+    "active": false
   }
 ]
