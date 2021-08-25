@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 import ProductsElements from './data/products.json';
 import EditProduct from "./pages/EditProduct";
 import AppReducer from "./components/exampleHooks/useReducer";
+import AppMemo from "./components/exampleHooks/useMemo";
 
 import "./css/style.css"
 
@@ -43,6 +44,7 @@ const App = () => {
           </Route>
           <Route path="/table" component={TablePage} />
           <Route path="/useReducer" component={AppReducer} />
+          <Route path="/useMemo" component={AppMemo} />
           <Route path="/todos" component={TodoList} />
           <Route component={Error} />
         </Switch>
