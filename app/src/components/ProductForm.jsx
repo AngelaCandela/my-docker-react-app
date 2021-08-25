@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
 
 
 const ProductForm = ({ setProducts }) => {
