@@ -1,6 +1,8 @@
 import Header1 from '../components/atom/Header1'
 import Container from "../components/layout/Container"
 import Card from '../components/Card';
+import PropTypes from 'prop-types';
+
 
 const Index = ({products, setProducts}) => {
     return (
@@ -12,5 +14,10 @@ const Index = ({products, setProducts}) => {
         </Container>
     )
 };
+
+Index.PropTypes = {
+    products: PropTypes.array.isRequired,
+    setProducts: PropTypes.func.isRequired
+}
 
 export default Index;

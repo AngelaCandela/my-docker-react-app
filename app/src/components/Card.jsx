@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { URL_APP_BASE } from '../CONST';
+import PropTypes from 'prop-types';
 
 const Card = ({ products, setProducts }) => {
 
@@ -30,5 +31,10 @@ const Card = ({ products, setProducts }) => {
     </div>
   )
 };
+
+Card.PropTypes = {
+  products: PropTypes.array.isRequired,
+  setProducts: PropTypes.func.isRequired
+}
 
 export default Card;
