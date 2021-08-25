@@ -1,22 +1,20 @@
 import React, { useState, useMemo } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
+import "./css/style.css"
 import { ContactsPage } from './pages/ContactsPage';
 import { AppointmentsPage } from './pages/AppointmentsPage';
-
-import Navbar from './components/Navbar';
+import Navbar from './components/templates/Navbar';
 import Index from './pages/Index';
 import CreateProduct from './pages/CreateProduct';
 import TablePage from './pages/TablePage';
 import TodoList from './pages/TodoList';
 import Error from './pages/Error';
-import Footer from "./components/Footer";
+import Footer from "./components/templates/Footer";
 import ProductsElements from './data/products.json';
 import EditProduct from "./pages/EditProduct";
 import AppReducer from "./components/exampleHooks/useReducer";
 import AppMemo from "./components/exampleHooks/useMemo";
-
-import "./css/style.css"
+import AppUseCallback from "./components/exampleHooks/useCallback";
 
 const App = () => {
 
@@ -51,6 +49,7 @@ const App = () => {
           <Route path="/table" component={TablePage} />
           <Route path="/useReducer" component={AppReducer} />
           <Route path="/useMemo" component={AppMemo} />
+          <Route path="/useCallback" component={AppUseCallback} />
           <Route path="/todos" component={TodoList} />
           <Route component={Error} />
         </Switch>
