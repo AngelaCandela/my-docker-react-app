@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import { ContactsPage } from './pages/ContactsPage';
@@ -22,6 +22,12 @@ const App = () => {
 
   const [products, setProducts] = useState(ProductsElements);
 
+  const memoizedProductValue = useMemo(() => {
+    console.log('Render Product');
+    return products;
+  }, [products]);
+
+
   return (
     <div className="d-flex flex-column justify-content-stretch">
       <BrowserRouter>
@@ -34,13 +40,13 @@ const App = () => {
             <AppointmentsPage />
           </Route>
           <Route exact path="/">
-            <Index products={products} />
+            <Index products={memoizedProductValue} />
           </Route>
           <Route path="/create">
             <CreateProduct setProducts={setProducts} />
           </Route>
           <Route path="/edit/:productID">
-            <EditProduct products={products} setProducts={setProducts} />
+            <EditProduct products={memoizedProductValue} setProducts={setProducts} />
           </Route>
           <Route path="/table" component={TablePage} />
           <Route path="/useReducer" component={AppReducer} />
