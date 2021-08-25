@@ -2,7 +2,7 @@ import {NavLink} from "react-router-dom";
 import PropTypes from 'prop-types';
 
 
-import mainMenuLinks from "../data/mainMenuLinks.json";
+import mainMenuLinks from "../../data/mainMenuLinks.json";
 
 const Navbar = () => (
     <nav className="navbar navbar-expand navbar-light bg-light">

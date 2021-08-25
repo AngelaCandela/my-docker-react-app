@@ -1,4 +1,4 @@
-import "../css/footer.css"
+import "../../css/footer.css"
 
 const Footer = () => (
   <footer id="footer" className="py-4 text-center bg-dark text-light">
