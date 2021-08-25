@@ -15,7 +15,8 @@ code {
 }
 
 #root {
-  padding: 3%;
+  /* padding: 3%; */
+  min-width: 100vh;
   font-family: "Open Sans", sans-serif;
 }
 
