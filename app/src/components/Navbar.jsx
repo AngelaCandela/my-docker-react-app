@@ -1,4 +1,6 @@
 import {NavLink} from "react-router-dom";
+import PropTypes from 'prop-types';
+
 
 import mainMenuLinks from "../data/mainMenuLinks.json";
 
@@ -23,6 +25,8 @@ const LinkItem = ({ link }) => (
     </NavLink>
 )
 
-// TODO: propTypes for LinkItem
+LinkItem.propTypes = {
+    link: PropTypes.object.isRequired
+}
 
 export default Navbar;
