@@ -13,6 +13,7 @@ import Error from './pages/Error';
 import Footer from "./components/Footer";
 import ProductsElements from './data/products.json';
 import EditProduct from "./pages/EditProduct";
+import AppReducer from "./components/exampleHooks/useReducer";
 
 import "./css/style.css"
 
@@ -41,6 +42,7 @@ const App = () => {
             <EditProduct products={products} setProducts={setProducts} />
           </Route>
           <Route path="/table" component={TablePage} />
+          <Route path="/useReducer" component={AppReducer} />
           <Route path="/todos" component={TodoList} />
           <Route component={Error} />
         </Switch>
