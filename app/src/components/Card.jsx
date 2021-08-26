@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { ProductsContext } from "./context/context";
 
-const Card = ({ products, setProducts }) => {
+const Card = () => {
 
   let history = useHistory();
+  const { products, setProducts } = useContext(ProductsContext);
 
   const remove = (product) => {
     const filteredProducts = products.filter(item => item.id !== product.id);
