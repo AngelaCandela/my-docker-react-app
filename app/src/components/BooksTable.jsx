@@ -54,15 +54,13 @@ BooksTable.propTypes = {
 };
 
 TableRow.propTypes = {
-  book: PropTypes.objectOf(
-    PropTypes.exact({
-      title: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      sales: PropTypes.number.isRequired,
-      price: PropTypes.number.isRequired,
-      email: isEmail
-    })
-  )
+  book: PropTypes.exact({
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    sales: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    email: isEmail
+  })
 }
 
 HeaderCol.propTypes = {
