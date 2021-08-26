@@ -32,7 +32,7 @@ const Card = ({ products, setProducts }) => {
   )
 };
 
-Card.PropTypes = {
+Card.propTypes = {
   products: PropTypes.array.isRequired,
   setProducts: PropTypes.func.isRequired
 }
