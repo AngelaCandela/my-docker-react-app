@@ -72,26 +72,17 @@ const App = () => {
           </Route>
           <Route exact path="/">
             <ProductsProvider value={{products, setProducts, addProduct}}>
-              <Index
-                products={products}
-                setProducts={setProducts}
-              />
+              <Index />
             </ProductsProvider>
           </Route>
           <Route path="/create">
             <ProductsProvider value={{products, setProducts, addProduct}}>
-              <Create
-                products={products}
-                addProduct={addProduct}
-              />
+              <Create />
             </ProductsProvider>
           </Route>
           <Route path="/edit/:productId">
             <ProductsProvider value={{products, setProducts, addProduct}}>
-              <Edit
-                products={products}
-                setProducts={setProducts}
-              />
+              <Edit />
             </ProductsProvider>
           </Route>
           <Route path="/table" component={TablePage} />
