@@ -6,7 +6,7 @@ import books from '../data/books.json';
 const TablePage = () => (
   <Container className="my-5">
     <Header1 title="Table" />
-    <BooksTable books={books[0]} />
+    <BooksTable books={books} />
   </Container>
 );
 
