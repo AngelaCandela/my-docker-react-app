@@ -1,6 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useContext, useRef } from 'react';
+import { ProductsContext } from './context/context';
 
-const ProductForm = ({ products, setProducts, addProduct, id }) => {
+const ProductForm = ({ id }) => {
+
+  const { products, setProducts, addProduct } = useContext(ProductsContext);
 
   const nameInput = useRef();
   const priceInput = useRef();
