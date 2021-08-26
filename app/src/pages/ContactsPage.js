@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useCallback } from "react";
 import { AgendaContext } from "../components/context/context";
 import Header1 from "../components/atom/Header1"
 import Container from "../components/layout/Container"
@@ -18,12 +18,16 @@ const ContactsPage = () => {
           return response.json();
       })
       .then(response => {
-          setContacts(response);
+          updateContacts(response);
       })
       .catch(error => console.error('Error: ', error)
       );
     }
   }, [contacts]);
+
+  const updateContacts = useCallback((response) => {
+    setContacts(response)
+  }, []);
 
   return (
     <Container className="my-5">
