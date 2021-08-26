@@ -15,7 +15,7 @@ const ProductForm = ({ products, setProducts, addProduct, id }) => {
           console.error(error);
       };
     }
-  }, [id]);
+  }, [id, products]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
