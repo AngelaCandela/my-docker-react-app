@@ -41,15 +41,12 @@ const ProductForm = ({ products, setProducts, addProduct, id }) => {
       }
     });
     setProducts(newProductsArray);
-    clearInputs();
   };
 
   const createProduct = (name, price) => {
     const id = generateRandomId();
     if (addProduct(id, name, price)) {
       clearInputs();
-    } else {
-      alert('We could not add this product to the list.');
     };
   };
 
