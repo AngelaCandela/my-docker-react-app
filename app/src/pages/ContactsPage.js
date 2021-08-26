@@ -23,7 +23,7 @@ const ContactsPage = () => {
       .catch(error => console.error('Error: ', error)
       );
     }
-  });
+  }, [contacts]);
 
   return (
     <Container className="my-5">
