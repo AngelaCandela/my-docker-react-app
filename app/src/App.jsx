@@ -71,22 +71,28 @@ const App = () => {
             </AgendaProvider>
           </Route>
           <Route exact path="/">
-            <Index
-              products={products}
-              setProducts={setProducts}
-            />
+            <ProductsProvider value={{products, setProducts, addProduct}}>
+              <Index
+                products={products}
+                setProducts={setProducts}
+              />
+            </ProductsProvider>
           </Route>
           <Route path="/create">
-            <Create
-              products={products}
-              addProduct={addProduct}
-            />
+            <ProductsProvider value={{products, setProducts, addProduct}}>
+              <Create
+                products={products}
+                addProduct={addProduct}
+              />
+            </ProductsProvider>
           </Route>
           <Route path="/edit/:productId">
-            <Edit
-              products={products}
-              setProducts={setProducts}
-            />
+            <ProductsProvider value={{products, setProducts, addProduct}}>
+              <Edit
+                products={products}
+                setProducts={setProducts}
+              />
+            </ProductsProvider>
           </Route>
           <Route path="/table" component={TablePage} />
           <Route path="/todos" component={TodoList} />
