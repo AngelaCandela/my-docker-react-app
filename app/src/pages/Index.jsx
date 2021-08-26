@@ -15,7 +15,7 @@ const Index = ({products, setProducts}) => {
     )
 };
 
-Index.PropTypes = {
+Index.propTypes = {
     products: PropTypes.array.isRequired,
     setProducts: PropTypes.func.isRequired
 }
