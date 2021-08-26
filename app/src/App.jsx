@@ -49,6 +49,7 @@ const App = () => {
       setProducts(prev => [...prev, newProduct]);
     } catch (error) {
         console.error(error);
+        alert('We could not add this product to the list.');
         return false;
     };
     return true;
