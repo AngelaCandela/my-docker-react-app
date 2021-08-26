@@ -66,7 +66,7 @@ const App = () => {
             <Route path="/appointments">
               <AppointmentsPage />
             </Route>
-
+          </AgendaProvider>
           <Route exact path="/">
             <Index
               products={products}
@@ -85,7 +85,6 @@ const App = () => {
               setProducts={setProducts}
             />
           </Route>
-          </AgendaProvider>
           <Route path="/table" component={TablePage} />
           <Route path="/todos" component={TodoList} />
           <Route component={Error} />
