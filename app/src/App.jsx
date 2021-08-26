@@ -59,14 +59,16 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Switch>
-          <AgendaProvider value={{contacts, setContacts, addContact, appointments, addAppointment}}>
-            <Route path="/contacts">
+          <Route path="/contacts">
+            <AgendaProvider value={{contacts, setContacts, addContact, appointments, addAppointment}}>
               <ContactsPage />
-            </Route>
-            <Route path="/appointments">
+            </AgendaProvider>
+          </Route>
+          <Route path="/appointments">
+            <AgendaProvider value={{contacts, setContacts, addContact, appointments, addAppointment}}>
               <AppointmentsPage />
-            </Route>
-          </AgendaProvider>
+            </AgendaProvider>
+          </Route>
           <Route exact path="/">
             <Index
               products={products}
