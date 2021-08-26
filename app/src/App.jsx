@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AgendaProvider } from "./components/context/context.js"
+import { AgendaProvider, ProductsProvider } from "./components/context/context.js"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import ContactsPage from './pages/ContactsPage';
