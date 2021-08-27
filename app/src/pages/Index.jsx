@@ -13,8 +13,6 @@ const Index = () => {
         <Container className="my-5">
             <Header1
                 title={`Listado de productos ${process.env.REACT_APP_NAME}`} />
-            {/* TODO: hacer el map de product aqui */}
-            {/* Por cada iteracion llamar a card */}
             <div className="row">
                 {products.map(theProduct => {
                     { <Card theProduct={theProduct} /> }
