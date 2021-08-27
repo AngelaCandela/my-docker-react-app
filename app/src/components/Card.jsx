@@ -30,8 +30,7 @@ const Card = ({ theProduct }) => {
 };
 
 Card.propTypes = {
-  products: PropTypes.array.isRequired,
-  setProducts: PropTypes.func.isRequired
+  theProduct: PropTypes.func.isRequired
 }
 
 export default Card;
