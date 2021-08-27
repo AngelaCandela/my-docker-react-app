@@ -7,15 +7,15 @@ import { useContext } from 'react';
 
 const Index = () => {
 
-    const products = useContext(ProductContext);
+    const { memoizedProductValue } = useContext(ProductContext);
 
     return (
         <Container className="my-5">
             <Header1
                 title={`Listado de productos ${process.env.REACT_APP_NAME}`} />
             <div className="row">
-                {products.map(theProduct => {
-                    { <Card theProduct={theProduct} /> }
+                {memoizedProductValue.map(theProduct => {
+                    return <Card theProduct={theProduct} />
                 })}
             </div>
         </Container>
