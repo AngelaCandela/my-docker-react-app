@@ -14,7 +14,7 @@ const Card = ({ theProduct }) => {
     } catch (error) {
       console.error("Error: ", error)
     }
-  }, [memoizedProductValue])
+  }, [memoizedProductValue, setProducts])
 
   return (
     <div key={theProduct.name} className="card mt-5 p-3 col-4">
