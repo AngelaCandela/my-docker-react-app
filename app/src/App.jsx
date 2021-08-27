@@ -15,6 +15,7 @@ import EditProduct from "./pages/EditProduct";
 import AppReducer from "./components/exampleHooks/useReducer";
 import AppMemo from "./components/exampleHooks/useMemo";
 import AppUseCallback from "./components/exampleHooks/useCallback";
+import { ProductProvider } from "./components/context/ProductContext";
 
 const App = () => {
 
@@ -38,13 +39,19 @@ const App = () => {
             <AppointmentsPage />
           </Route>
           <Route exact path="/">
-            <Index products={memoizedProductValue} setProducts={setProducts} />
+            <ProductProvider value={{ memoizedProductValue, setProducts }}>
+              <Index />
+            </ProductProvider>
           </Route>
           <Route path="/create">
-            <CreateProduct setProducts={setProducts} />
+            <ProductProvider value={{ memoizedProductValue, setProducts }}>
+              <CreateProduct />
+            </ProductProvider>
           </Route>
           <Route path="/edit/:productID">
-            <EditProduct products={memoizedProductValue} setProducts={setProducts} />
+            <ProductProvider value={{ memoizedProductValue, setProducts }}>
+              <EditProduct />
+            </ProductProvider>
           </Route>
           <Route path="/table" component={TablePage} />
           <Route path="/useReducer" component={AppReducer} />
@@ -55,7 +62,7 @@ const App = () => {
         </Switch>
       </BrowserRouter>
       <Footer />
-    </div>
+    </div >
   )
 };
 
