@@ -12,8 +12,4 @@ const CreateProduct = () => (
     </Container>
 );
 
-CreateProduct.propTypes = {
-    setProducts: PropTypes.func.isRequired
-}
-
 export default CreateProduct;
