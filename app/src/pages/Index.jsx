@@ -15,7 +15,11 @@ const Index = () => {
                 title={`Listado de productos ${process.env.REACT_APP_NAME}`} />
             {/* TODO: hacer el map de product aqui */}
             {/* Por cada iteracion llamar a card */}
-            {<Card />}
+            <div className="row">
+                {products.map(theProduct => {
+                    { <Card theProduct={theProduct} /> }
+                })}
+            </div>
         </Container>
     )
 };

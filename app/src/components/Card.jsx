@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { URL_APP_BASE } from '../CONST';
 import PropTypes from 'prop-types';
 
-const Card = ({ products, setProducts }) => {
+const Card = () => {
 
   const handlerDeleted = useCallback((theProduct) => {
     try {
@@ -14,22 +14,16 @@ const Card = ({ products, setProducts }) => {
   }, [products])
 
   return (
-    <div className="row">
-      {products.map(theProduct => {
-        return (
-          <div key={theProduct.name} className="card mt-5 p-3 col-4">
-            <img alt="" src="" className="card-img-top" />
-            <div className="card-body">
-              <h5 className="card-title">{theProduct.name}</h5>
-              <p className="card-text">Precio: {theProduct.price}€</p>
-              <a href={URL_APP_BASE + 'edit/' + theProduct.id} className="btn btn-primary ">Editar</a>
-              <button onClick={() => handlerDeleted(theProduct)} className="btn btn-danger handlerDeleted ml-3" >Borrar</button>
-            </div>
-          </div>
-        );
-      })}
+    <div key={theProduct.name} className="card mt-5 p-3 col-4">
+      <img alt="" src="" className="card-img-top" />
+      <div className="card-body">
+        <h5 className="card-title">{theProduct.name}</h5>
+        <p className="card-text">Precio: {theProduct.price}€</p>
+        <a href={URL_APP_BASE + 'edit/' + theProduct.id} className="btn btn-primary ">Editar</a>
+        <button onClick={() => handlerDeleted(theProduct)} className="btn btn-danger handlerDeleted ml-3" >Borrar</button>
+      </div>
     </div>
-  )
+  );
 };
 
 Card.propTypes = {
