@@ -2,16 +2,20 @@ import Header1 from '../components/atom/Header1'
 import Container from "../components/layout/Container"
 import Card from '../components/Card';
 import PropTypes from 'prop-types';
-
+import ProductContext from '../components/context/ProductContext';
+import { useContext } from 'react';
 
 const Index = () => {
+
+    const products = useContext(ProductContext);
+
     return (
         <Container className="my-5">
             <Header1
-                title={`Listado de productos ${process.env.REACT_APP_NAME}`}/>
+                title={`Listado de productos ${process.env.REACT_APP_NAME}`} />
             {/* TODO: hacer el map de product aqui */}
             {/* Por cada iteracion llamar a card */}
-            { <Card />}
+            {<Card />}
         </Container>
     )
 };
