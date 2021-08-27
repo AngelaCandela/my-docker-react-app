@@ -2,20 +2,23 @@ import PropTypes from 'prop-types';
 import Book from './Book';
 
 const BooksTable = ({ books }) => (
-    <table className="table table-striped table-hover mx-auto w-75">
-        <thead className="thead-dark">
-            <tr>
-                { books[0].header.map((header, index) =>
-                    <HeaderCol key={index} header={header} />
-                )}
-            </tr>
-        </thead>
-        <tbody>
-        { books[0].data.map((book, index) =>
-            <TableRow key={index} book={book} />
-        )}
-        </tbody>
-    </table>
+    <>
+      <table className="table table-striped table-hover mx-auto w-75">
+          <thead className="thead-dark">
+              <tr>
+                  { books.header.map((header, index) =>
+                      <HeaderCol key={index} header={header} />
+                  )}
+              </tr>
+          </thead>
+          <tbody>
+          {books.data.map((book, index) =>
+              <TableRow key={index} book={book} />
+          )}
+          </tbody>
+      </table>
+      <p>{books.data.reduce(pricesSum, 0)}</p>
+    </>
 );
 
 const HeaderCol = ({ header }) => (
@@ -43,6 +46,8 @@ const isEmail = function(propValue, key, componentName, location, propFullName) 
     return new Error(`Invalid prop ${prop} passed to ${componentName}. Expected a valid email address.`);
   }
 };
+
+const pricesSum = (sum, book) => sum + book.price;
 
 BooksTable.propTypes = {
   books: PropTypes.arrayOf(
