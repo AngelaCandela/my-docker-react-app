@@ -8,10 +8,6 @@ const ProductsList = () => {
   let history = useHistory();
   const { products, setProducts } = useContext(ProductsContext);
 
-  const remove = (product) => {
-    const filteredProducts = products.filter(item => item.id !== product.id);
-    setProducts(filteredProducts);
-  };
 
   return (
     <div className="row">
