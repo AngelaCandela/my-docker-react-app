@@ -9,7 +9,8 @@ const Index = ({products, setProducts}) => {
         <Container className="my-5">
             <Header1
                 title={`Listado de productos ${process.env.REACT_APP_NAME}`}/>
-
+            {/* TODO: hacer el map de product aqui */}
+            {/* Por cada iteracion llamar a card */}
             {products && <Card products={products} setProducts={setProducts} />}
         </Container>
     )
