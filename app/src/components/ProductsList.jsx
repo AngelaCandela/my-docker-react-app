@@ -1,13 +1,10 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
 import { ProductsContext } from "./context/context";
 import Card from "./Card";
 
 const ProductsList = () => {
 
-  let history = useHistory();
-  const { products, setProducts } = useContext(ProductsContext);
-
+  const { products } = useContext(ProductsContext);
 
   return (
     <div className="row">
