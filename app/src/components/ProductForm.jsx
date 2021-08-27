@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 
-const ProductForm = ({ setProducts }) => {
+const ProductForm = () => {
 
     const inputNameRef = useRef();
     const inputPriceRef = useRef();
