@@ -1,17 +1,20 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { URL_APP_BASE } from '../CONST';
 import PropTypes from 'prop-types';
+import { ProductContext } from '../components/context/ProductContext';
 
-const Card = () => {
+const Card = ({ theProduct }) => {
+
+  const { memoizedProductValue, setProducts } = useContext(ProductContext);
 
   const handlerDeleted = useCallback((theProduct) => {
     try {
       console.log('Remove Product: ', theProduct)
-      setProducts(products.filter(item => item.name !== theProduct.name))
+      setProducts(memoizedProductValue.filter(item => item.name !== theProduct.name))
     } catch (error) {
       console.error("Error: ", error)
     }
-  }, [products])
+  }, [memoizedProductValue])
 
   return (
     <div key={theProduct.name} className="card mt-5 p-3 col-4">
