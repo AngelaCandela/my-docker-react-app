@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { ProductsContext } from "./context/context";
 
-const Card = () => {
+const ProductsList = () => {
 
   let history = useHistory();
   const { products, setProducts } = useContext(ProductsContext);
@@ -32,4 +32,4 @@ const Card = () => {
   )
 };
 
-export default Card;
+export default ProductsList;
