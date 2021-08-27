@@ -1,8 +1,11 @@
-import { useRef } from 'react';
+import { useRef, useContext } from 'react';
 import PropTypes from 'prop-types';
-
+import { ProductContext } from '../components/context/ProductContext';
 
 const ProductForm = () => {
+
+    const { setProducts } = useContext(ProductContext);
+
 
     const inputNameRef = useRef();
     const inputPriceRef = useRef();
@@ -54,7 +57,7 @@ const ProductForm = () => {
                 <input
                     type="submit"
                     className="mt-3"
-                    value="Enviar"/>
+                    value="Enviar" />
             </form>
         </div>
     );
