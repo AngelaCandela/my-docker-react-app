@@ -17,6 +17,7 @@ import AppReducer from "./components/exampleHooks/useReducer";
 import AppMemo from "./components/exampleHooks/useMemo";
 import AppUseCallback from "./components/exampleHooks/useCallback";
 import AppUseToggle from "./components/ExampleUseToggle";
+import AppUseCopyToClipboard from "./components/ExampleUseCopyToClipboard";
 
 const App = () => {
 
@@ -59,6 +60,7 @@ const App = () => {
           <Route path="/useMemo" component={AppMemo} />
           <Route path="/useCallback" component={AppUseCallback} />
           <Route path="/useToggle" component={AppUseToggle} />
+          <Route path="/useCopyToClipboard" component={AppUseCopyToClipboard} />
           <Route path="/todos" component={TodoList} />
           <Route component={Error} />
         </Switch>
