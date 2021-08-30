@@ -6,7 +6,7 @@ const useCopyToClipboard = () => {
 
     const handleCopy = (text) => {
         if (typeof text === "string" || typeof text === "number") {
-            copy(texr.toString());
+            copy(text.toString());
             setCopied(true);
         } else {
             setCopied(false);
