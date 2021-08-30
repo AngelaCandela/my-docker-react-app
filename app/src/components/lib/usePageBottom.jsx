@@ -6,6 +6,7 @@ const usePageBottom = () => {
     useEffect(() => {
         const handleScroll = () =>{
             const isBottom = window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight;
+            setBottom(isBottom);
         }
     }, []);
 
