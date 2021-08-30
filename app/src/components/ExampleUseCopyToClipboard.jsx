@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import useCopyToClipboard from "./lib/useCopyToClipBoard";
 
 const CopyButton = ({ code }) => {
@@ -11,13 +11,16 @@ const CopyButton = ({ code }) => {
     );
 };
 
-const code = "The text to copy";
 
 const AppUseCopyToClipboard = () => {
+    
+    const code = "The text to copy";
+    const textareaRef = useRef();
+
     return (
         <>
-            <textarea cols="30" rows="10">{code}</textarea>
-            <CopyButton code={code} />
+            <textarea ref={textareaRef} cols="30" rows="10">{code}</textarea>
+            <CopyButton code={textareaRef} />
         </>
     )
 }
