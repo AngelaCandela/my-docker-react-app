@@ -40,6 +40,11 @@
     "active": false
   },
   {
+    "to": "/useToggle",
+    "linkText": "useToggle",
+    "active": false
+  },
+  {
     "to": "/useReducer",
     "linkText": "useReducer",
     "active": false
