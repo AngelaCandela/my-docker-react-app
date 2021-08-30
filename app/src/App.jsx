@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./css/style.css"
 import { ContactsPage } from './pages/ContactsPage';
 import { AppointmentsPage } from './pages/AppointmentsPage';
+import { ProductProvider } from "./components/context/ProductContext";
 import Navbar from './components/templates/Navbar';
 import Index from './pages/Index';
 import CreateProduct from './pages/CreateProduct';
@@ -15,7 +16,7 @@ import EditProduct from "./pages/EditProduct";
 import AppReducer from "./components/exampleHooks/useReducer";
 import AppMemo from "./components/exampleHooks/useMemo";
 import AppUseCallback from "./components/exampleHooks/useCallback";
-import { ProductProvider } from "./components/context/ProductContext";
+import AppUseToggle from "./components/ExampleUseToggle";
 
 const App = () => {
 
@@ -57,6 +58,7 @@ const App = () => {
           <Route path="/useReducer" component={AppReducer} />
           <Route path="/useMemo" component={AppMemo} />
           <Route path="/useCallback" component={AppUseCallback} />
+          <Route path="/useToggle" component={AppUseToggle} />
           <Route path="/todos" component={TodoList} />
           <Route component={Error} />
         </Switch>
