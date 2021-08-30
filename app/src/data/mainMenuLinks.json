@@ -45,6 +45,11 @@
     "active": false
   },
   {
+    "to": "/useCopyToClipboard",
+    "linkText": "useCopyToClipboard",
+    "active": false
+  },
+  {
     "to": "/useReducer",
     "linkText": "useReducer",
     "active": false
