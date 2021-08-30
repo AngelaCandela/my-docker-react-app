@@ -21,3 +21,5 @@ const AppUseCopyToClipboard = () => {
         </>
     )
 }
+
+export default AppUseCopyToClipboard;
