@@ -1,6 +1,4 @@
-[
-    {
-        "name": "producto Test",
-        "price": "10"
-    }
-]
+{
+    "name": "producto Test",
+    "price": "10"
+}
