@@ -47,6 +47,7 @@ const ProductForm = ({ id }) => {
       }
     });
     setProducts(newProductsArray);
+    setEditModalOpen(true);
   };
 
   const createProduct = (name, price) => {
