@@ -9,7 +9,9 @@ const usePageBottom = () => {
             const isBottom = window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight;
             setBottom(isBottom);
         }
-        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("mousewheel", handleScroll);
+        };
     }, []);
 
     return bottom;
