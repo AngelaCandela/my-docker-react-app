@@ -7,7 +7,7 @@ import usePageBottom from '../components/lib/usePageBottom';
 
 const Index = () => {
 
-    const { memoizedProductValue } = useContext(ProductContext);
+    const { memoizedProductValue, setProducts } = useContext(ProductContext);
 
     usePageBottom();
 
