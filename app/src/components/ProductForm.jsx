@@ -52,6 +52,7 @@ const ProductForm = ({ id }) => {
   const createProduct = (name, price) => {
     const id = generateRandomId();
     if (addProduct(id, name, price)) {
+      setCreateModalOpen(true);
       clearInputs();
     };
   };
