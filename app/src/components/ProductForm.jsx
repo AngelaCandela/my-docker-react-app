@@ -5,6 +5,9 @@ const ProductForm = ({ id }) => {
 
   const { products, setProducts, addProduct } = useContext(ProductsContext);
 
+  const [isCreateModalOpen, setCreateModalOpen] = useState(false);
+  const [isEditModalOpen, setEditModalOpen] = useState(false);
+
   const nameInput = useRef();
   const priceInput = useRef();
 
