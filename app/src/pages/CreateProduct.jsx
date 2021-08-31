@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import Header1 from "../components/atom/Header1"
 import Container from "../components/layout/Container"
 import ProductForm from "../components/ProductForm";
