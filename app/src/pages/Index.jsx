@@ -17,7 +17,7 @@ const Index = () => {
                 title={`Listado de productos ${process.env.REACT_APP_NAME}`} />
             <div className="row">
                 {memoizedProductValue.map(theProduct => {
-                    return <Card theProduct={theProduct} />
+                    return <Card key={theProduct.name} theProduct={theProduct} />
                 })}
             </div>
         </Container>
