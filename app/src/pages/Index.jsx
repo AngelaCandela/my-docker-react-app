@@ -9,7 +9,20 @@ const Index = () => {
 
     const { memoizedProductValue, setProducts } = useContext(ProductContext);
 
-    usePageBottom();
+    if (usePageBottom()) {
+        fetch("/data/products.json", {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => setProducts(prev => [...prev, data]))
+            // .then(data => setProducts(data))
+            .catch(error => {
+                console.error('There was an error:', error);
+            });
+    }
 
     return (
         <Container className="my-5">
