@@ -75,33 +75,38 @@ const ProductForm = ({ id }) => {
   };
 
   return (
-      <div className="row">
-          <form onSubmit={handleSubmit}>
-              <label>
-                  Name
-              </label>
-              <input
-                className="col-12"
-                name="name"
-                type="text"
-                ref={nameInput}
-              />
-              <br />
-              <label>
-                Price
-              </label>
-              <input
-                className="col-12"
-                name="price"
-                type="number"
-                ref={priceInput}
-              />
-              <input
-                type="submit"
-                className="mt-3"
-                value={id ? "Edit product" : "Create product"}/>
-          </form>
-      </div>
+      <>
+        <div className="row">
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Name
+                </label>
+                <input
+                  className="col-12"
+                  name="name"
+                  type="text"
+                  ref={nameInput}
+                />
+                <br />
+                <label>
+                  Price
+                </label>
+                <input
+                  className="col-12"
+                  name="price"
+                  type="number"
+                  ref={priceInput}
+                />
+                <input
+                  type="submit"
+                  className="mt-3"
+                  value={id ? "Edit product" : "Create product"}/>
+            </form>
+        </div>
+        {isCreateModalOpen &&
+          <Modal text="The product has been created successfully!" isModalOpen={isCreateModalOpen} setModalOpen={setCreateModalOpen} />
+        }
+      </>
   );
 };
 
