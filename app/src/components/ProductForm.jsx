@@ -47,13 +47,11 @@ const ProductForm = ({ id }) => {
       }
     });
     setProducts(newProductsArray);
-    alert('The product has been edited successfully!');
   };
 
   const createProduct = (name, price) => {
     const id = generateRandomId();
     if (addProduct(id, name, price)) {
-      alert('The product has been created successfully!');
       clearInputs();
     };
   };
