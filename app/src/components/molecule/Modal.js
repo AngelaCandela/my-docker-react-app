@@ -1,4 +1,5 @@
 import React, { useRef, useCallback } from 'react';
+import useOnClickOutside from '../../customHooks/useOnClickOutside';
 import "../../css/modal.css"
 
 const Modal = ({ text, isModalOpen, setModalOpen }) => {
@@ -7,6 +8,7 @@ const Modal = ({ text, isModalOpen, setModalOpen }) => {
   const closeModal = useCallback(
     () => setModalOpen(false), []
   );
+  useOnClickOutside(ref, closeModal);
 
   return (
     isModalOpen &&
