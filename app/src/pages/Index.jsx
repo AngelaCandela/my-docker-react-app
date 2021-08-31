@@ -3,10 +3,13 @@ import Container from "../components/layout/Container"
 import Card from '../components/Card';
 import { ProductContext } from '../components/context/ProductContext';
 import { useContext } from 'react';
+import usePageBottom from '../components/lib/usePageBottom';
 
 const Index = () => {
 
     const { memoizedProductValue } = useContext(ProductContext);
+
+    usePageBottom();
 
     return (
         <Container className="my-5">
