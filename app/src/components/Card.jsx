@@ -17,7 +17,7 @@ const Card = ({ theProduct }) => {
   }, [memoizedProductValue, setProducts])
 
   return (
-    <div key={theProduct.name} className="card mt-5 p-3 col-4">
+    <div key={theProduct.name} className="card mt-5 p-3 col-12 mb-3">
       <img alt="" src="" className="card-img-top" />
       <div className="card-body">
         <h5 className="card-title">{theProduct.name}</h5>
