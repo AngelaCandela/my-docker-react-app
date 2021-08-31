@@ -106,6 +106,9 @@ const ProductForm = ({ id }) => {
         {isCreateModalOpen &&
           <Modal text="The product has been created successfully!" isModalOpen={isCreateModalOpen} setModalOpen={setCreateModalOpen} />
         }
+        {isEditModalOpen &&
+          <Modal text="The product has been edited successfully!" isModalOpen={isEditModalOpen} setModalOpen={setEditModalOpen} />
+        }
       </>
   );
 };
