@@ -1,4 +1,5 @@
 import React, { useRef, useCallback } from 'react';
+import "../../css/modal.css"
 
 const Modal = ({ text, isModalOpen, setModalOpen }) => {
   const ref = useRef();
