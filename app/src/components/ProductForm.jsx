@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useRef, useState } from 'react';
 import { ProductsContext } from './context/context';
+import Modal from './molecule/Modal';
 
 const ProductForm = ({ id }) => {
 
