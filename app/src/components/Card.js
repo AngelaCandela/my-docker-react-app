@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { ProductsContext } from "./context/context";
+import useHover from "../customHooks/useHover";
 
 const Card = ({ product }) => {
+
+  const [hoverRef, isHovered] = useHover();
 
   let history = useHistory();
   const { products, setProducts } = useContext(ProductsContext);
