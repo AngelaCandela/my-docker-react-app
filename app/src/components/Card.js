@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { ProductsContext } from "./context/context";
 import useHover from "../customHooks/useHover";
+import "../css/card.css";
 
 const Card = ({ product }) => {
 
@@ -16,7 +17,7 @@ const Card = ({ product }) => {
   };
 
   return (
-    <div key={product.name} className="card mt-5 p-3 col-4">
+    <div key={product.name} ref={hoverRef} className={`${isHovered ? "hovered" : ""} card mt-5 p-3 col-4`}>
       <img alt="" src="" className="card-img-top" />
       <div className="card-body">
         <h5 className="card-title">Name: {product.name}</h5>
